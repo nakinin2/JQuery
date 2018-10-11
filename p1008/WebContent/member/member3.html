@@ -1,0 +1,321 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Mobile 웹 응용 프로그램</title>
+<link href="jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+<script src="jquery.min.js"></script>
+
+<script type="text/javascript">
+/*
+function checkWrite(){
+	//window.open("id_dup.jsp?id="+document.writeform.id.value,target="display_area"); 중복체크하는 명령어
+	if(document.writeform.id.value == ""){
+		alert("아이디를입력하세요.");
+		document.writeform.id.focus();
+	}else if(document.writeform.name.value == ""){
+		alert("이름를 입력하세요.");
+        document.writeform.name.focus();
+	}else if(document.writeform.passwd.value == ""){
+		alert("비밀번호를 입력하세요.");
+        document.writeform.passwd.focus();
+	}else if(document.writeform.repasswd.value == ""){
+		alert("확인 비밀번호를 입력하세요.");
+        document.writeform.repasswd.focus();
+	}else if(document.writeform.passwd.value != "" && document.writeform.repasswd.value != ""){
+		if(document.writeform.repasswd.value != document.writeform.passwd.value){
+			alert("비밀번호가 일치하지 않는다.");
+	        document.writeform.passwd.focus();
+		}else{
+			document.writeform.submit();
+		}
+	}
+}
+function id_chk(){
+	window.open("id_check.jsp?id="+document.writeform.id.value,target="display_area"); //중복체크를 확인을 위해 사용하는 명령어
+}*/
+/*
+$(document).ready(function(){
+	$("#id").click(function(){
+		$(".trans_text").text("회원 아이디를 입력하세요");
+		$(".trans_text").css("color","red");
+	} );
+} );
+
+$(function(){		   		$(document).ready(function(){
+	});			  같다  		});
+
+$(function(){
+	$("#id").on("click",function(){
+			$(".trans_text").text("회원 아이디를 입력해 주세요");
+			$(".trans_text").css("color","red");
+		} );
+
+});
+$(function(){
+	$("#name").click(function(){
+		$(".trans_text").off("click").text("아이디를 입력해 주세요");
+		$(".trans_text").css("color","blue");
+	});
+});
+$(function(){
+	$("#addr").click(function(){
+			$(".trans_text2").text("주소를 입력해 주세요");
+			$(".trans_text2").css("color","blue");
+		} );
+});
+
+
+function f_offClickEvent() {
+    // function body
+	$(".trans_text").off("click");
+
+};
+*/
+$(function(){
+	$("body").click(function(){
+		$("#nameHelper").off("click").text("");
+		$("#idHelper").off("click").text("");
+		$("#passwordHelper").off("click").text("");
+		$("#repasswordHelper").off("click").text("");
+		$("#nicknameHelper").off("click").text("");
+		$("#telHelper").off("click").text("");
+		$("#email1Helper").off("click").text("");
+	});
+});
+//윈도우 모드
+
+$(function(){
+	//name에 포커스
+	$("#name").focus();
+	//등록 버튼 클릭 시
+	$("#s_insert").click(function(){
+		//닉네임이 공백이거나 2자 미만일 경우 실행
+		if( $("#name").val() == "" ||  !(isNaN($("#name").val() ) ) || $("#name").val().length < 2 ){
+			//오류 출력
+			$("#nameHelper").text("닉네임을 입력해 주세요");
+			//아이디에 포커스
+			$("#name").focus();
+			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
+		//이름이 공백이나 숫자이거나 2자 미만이면 실행
+		}else{
+			$("#nicknameHelper").text("");
+			$("#writeform").submit();
+		}
+	});
+});
+$(function(){
+	//ID에 포커스
+	$("#id").focus();
+	//등록 버튼 클릭 시
+	$("#s_insert").click(function(){
+		//아이디가 공백이거나 8자 초과할 경우 실행
+		if( $("#id").val() == "" || $("#id").val().length > 8 || $("#name").val() == "" ){
+			//오류 출력
+			$("#idHelper").text("아이디를 입력해 주세요");
+			//아이디에 포커스
+			$("#id").focus();
+			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
+		//이름이 공백이나 숫자이거나 2자 미만이면 실행
+		}else{
+			$("#nicknameHelper").text("");
+			$("#writeform").submit();
+		}
+	});
+});
+	
+
+
+$(function(){
+	//passwd에 포커스
+	$("#passwd").focus();
+	//등록 버튼 클릭 시
+	$("#s_insert").click(function(){
+		//비밀번호가 공백이거나 8자 초과할 경우 실행
+		if( $("#passwd").val() == "" || $("#passwd").val().length > 8 || $("#name").val() == ""){
+		//오류 출력
+		$("#passwordHelper").text("패스워드를 입력해 주세요");
+		$("#passwd").focus();
+		return false; //flase로 리턴 하여 true일 때만 실행하게 설정
+		//비밀번호 확인 공백이거나 비밀번호와 일치 않으면 실행
+		}else{
+			$("#nicknameHelper").text("");
+			$("#writeform").submit();
+		}
+	});
+});
+
+$(function(){
+	//repasswd에 포커스
+	$("#repasswd").focus();
+	//등록 버튼 클릭 시
+	$("#s_insert").click(function(){
+		//비밀번호 확인이 공백이거나 비밀번호와 일치하지 않을 경우 실행
+		if( $("#repasswd").val() == "" || $("#passwd").val() != $("#repasswd").val() || $("#passwd").val() == ""){
+			//오류 출력
+			$("#repasswordHelper").text("비밀번호가 일치하지 않습니다");
+			$("#repasswd").focus();
+			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
+		//닉네임이 공백이면 실행
+		}else{
+			$("#nicknameHelper").text("");
+			$("#writeform").submit();
+		}
+	});
+});
+	
+$(function(){
+	//nickname에 포커스
+	$("#nickname").focus();
+	$("#s_insert").click(function(){
+		if( $("#nickname").val() == "" ){
+			//오류 출력
+			$("#nicknameHelper").text("닉네임을 입력해 주세요");
+			$("#nickname").focus();
+			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
+		}else{
+			$("#nicknameHelper").text("");
+			$("#writeform").submit();
+		}
+	});
+});
+
+$(function(){
+	//tel에 포커스
+	$("#tel").focus();
+	$("#s_insert").click(function(){
+		if( $("#tel").val() == "" || $("#addr").val() == "" ){
+			//오류 출력
+			$("#telHelper").text("전화번호를 입력해 주세요");
+			$("#tel").focus();
+			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
+		}else{
+			$("#nicknameHelper").text("");
+			$("#writeform").submit();
+		}
+	});
+});
+
+$(function(){
+	//eamil1에 포커스
+	$("#email1").focus();
+	$("#s_insert").click(function(){
+		if( $("#email1").val() == "" || $("#email1").val().length() > 10 ){
+			//오류 출력
+			$("#email1Helper").text("이메일을 입력해 주세요");
+			$("#email1").focus();
+			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
+		}else{
+			$("#nicknameHelper").text("");
+			$("#writeform").submit();
+		}
+	});
+});
+
+</script>
+<style>
+input{
+	border:none;
+	border-right:0px;
+	border-top:0px;
+	boder-left:0px;
+	boder-bottom:0px;
+}
+
+#idHelper, #nameHelper, #passwordHelper, #repasswordHelper, #nicknameHelper , #addrHelper, #telHelper, #email1Helper{
+	color:blue;
+	font-size: x-small;
+}
+
+</style>
+</head> 
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>header 영역</h1>
+	</div>
+	<div data-role="content">
+ 		<h1>회원 등록</h1>
+       	<form name="writeform" method="post" action="member_write2.jsp">
+            <table>
+                            <tr>
+                    <td><!-- 성명-->
+                    	<input type="text"  name="name" id="name" maxlength="10"  placeholder="이름 한글 또는 영문만 입력 가능" data-mini="true" >
+                    	&nbsp;<span id="nameHelper"></span>
+                    </td>
+                    <td></td>
+               	</tr>
+            	<tr>
+                	<td><!-- 아이디 -->
+	                    <input type="text" name="id" id="id"  size="28px" maxlength="10" placeholder="아이디 6~50자 영문/숫자"data-mini="true">
+	                    &nbsp;<span id="idHelper"></span>&nbsp;</td><!--값을 비워서 없는 것처럼 보이게 하기-->
+                    <td>
+                    	<!--  <span id="idHelper"></span>-->
+                    	<input type="button" value="중복체크" onclick="id_chk()" data-role="button"data-mini="true">&nbsp;</td>
+                </tr>
+                
+
+                
+                <tr>
+                    <td><!-- 패스워드 -->
+                    	<input type="password" name="passwd"  id="passwd" maxlength="12"  placeholder="비밀번호 6~20자 영문.숫자 조합" data-mini="true">   
+                    	&nbsp;<span id="passwordHelper"></span>
+                    </td>
+                    <td></td>
+               	</tr>
+               	
+                 <tr>	
+					<td><!-- 패스워드 확인 -->
+						<input type="password" name="repasswd"  id="repasswd" maxlength="12" placeholder="비밀번호 확인"data-mini="true">
+						&nbsp;<span id="repasswordHelper"></span>
+					</td>
+                    <td></td>
+				</tr>
+                <tr>
+                    <td><!-- 닉네임-->
+                    	<input type="text" name="nickname"  id="nickname" maxlength="10" placeholder="닉네임" data-mini="true">
+                    	&nbsp;<span id="nicknameHelper"></span>
+                    </td>
+                    <td></td>
+                </tr>
+
+                
+                <tr>
+                    <td><!-- 전화번호-->
+                    	<!-- <input type="tel" name="tel1" placeholder="999"  data-role="none">-<input type="tel" name="tel2" placeholder="9999"  data-role="none">-<input type="tel" name="tel3"placeholder="9999"  data-role="none" data-mini="true"> -->
+                    	<input type="text" name="tel"  id="tel" placeholder="휴대폰 번호(-제외)" maxlength="13"data-mini="true">
+                    	&nbsp;<span id="telHelper"></span>
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td><!-- 이메일 -->
+                    	<input type="text" name="email1"  id="email1" placeholder="oooo" data-mini="true">
+                    	&nbsp;<span id="email1Helper"></span>
+                    </td>
+                       <td>
+                       	<select name="email2"  id="email2" data-mini="true">
+                        	<option value="">선택하세요</option>
+                            <option>naver.com</option>
+                            <option>hanmail.net</option>
+                            <option>gmail.com</option>
+						</select>
+                    </td>    
+                </tr>             
+                <tr>
+                    <td><input type="submit" value="등록"  id="s_insert" onclick="javascript:checkWrite()" data-mini="true"></td>
+                    <td><input type="reset" value="취소" data-mini="true"></td>
+                </tr>
+            </table>
+        </form>
+	</div>		
+	<div data-role="footer" data-position="fixed">
+		<h4>footer 영역</h4>
+	</div>
+</div>
+</body>
+</html>
