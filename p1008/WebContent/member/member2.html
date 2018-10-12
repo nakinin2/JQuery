@@ -10,33 +10,11 @@
 
 <script type="text/javascript">
 /*
-function checkWrite(){
-	//window.open("id_dup.jsp?id="+document.writeform.id.value,target="display_area"); 중복체크하는 명령어
-	if(document.writeform.id.value == ""){
-		alert("아이디를입력하세요.");
-		document.writeform.id.focus();
-	}else if(document.writeform.name.value == ""){
-		alert("이름를 입력하세요.");
-        document.writeform.name.focus();
-	}else if(document.writeform.passwd.value == ""){
-		alert("비밀번호를 입력하세요.");
-        document.writeform.passwd.focus();
-	}else if(document.writeform.repasswd.value == ""){
-		alert("확인 비밀번호를 입력하세요.");
-        document.writeform.repasswd.focus();
-	}else if(document.writeform.passwd.value != "" && document.writeform.repasswd.value != ""){
-		if(document.writeform.repasswd.value != document.writeform.passwd.value){
-			alert("비밀번호가 일치하지 않는다.");
-	        document.writeform.passwd.focus();
-		}else{
-			document.writeform.submit();
-		}
-	}
-}*/
 function id_chk(){
 	$("#idHelper").text("중복된 아이디입니다.");
 	open("id_check.jsp?id="+document.writeform.id.value,target="display_area"); //중복체크를 확인을 위해 사용하는 명령어
-}
+}*/
+
 $(function(){
 	$("body").click(function(){
 		$("#nameHelper").off("click").text("");
@@ -48,75 +26,116 @@ $(function(){
 		$("#email1Helper").off("click").text("");
 	});
 });
-//윈도우 모드(return false;를 어떤 함수 하나에만 해 주면 submit이 정보가 일치하지 않아도 넘어가는 현상을 막을 수 있다.)
-	
+
+//윈도우 모드(return false;를 해 주면 submit이 정보가 일치하지 않아도 넘어가는 현상을 막을 수 있다.)
 $(function(){
 	//name에 포커스
 	$("#name").focus();
 	//등록 버튼 클릭 시
-	$("#s_insert").click(function(){
+	$("#s_insert").click(function(name){
+		//var num=/[0-9]$/;
+		var num1=/^([a-z]|[ㄱ-힣]){0}[a-zA-Zㄱ-힣]{0,10}$/;
 		//닉네임이 공백이거나 1자 미만일 경우 실행
 		if( $("#name").val().length < 1 ){
-			if( $("#name").val() == "" ) {
-					$("#nameHelper").text("공백을 입력해 주세요.");
+			//if( $("#name").val() == "" ) {
+					$("#nameHelper").text("이름을 입력해 주세요.");
 					$("#name").focus();
 					return false; //flase로 리턴 하여 true일 때만 실행하게 설정
-			}
-			//오류 출력
-			$("#nameHelper").text("이름을 입력해 주세요.");
-			//아이디에 포커스
-			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
+
 		//이름이 숫자로 시작하면 실행
-		}else if(  !(isNaN($("#name").val() ) ) ) {
-			$("#nameHelper").text("숫자를 첫 번째로 올 수가 없습니다.");
+		}else if( !document.writeform.name.value.match(num1) ) {
+			$("#nameHelper").text("숫자와 특수문자는 올 수 없습니다.");
 			$("#name").focus();
-			return true; //flase로 리턴 하여 true일 때만 실행하게 설정
+			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
 		}else{
+			$("#nameHelper").text("");
 			$("#writeform").submit();
 		}
 	});
 });
-
+/*
 //정규식으로 한글과 영어만 입력되고 숫자와 특수문자는 입력 안 되게 설정
 $(function(){
 	$("#name").on("keyup", function() {
     	$("#name").val($("#name").val().replace(/[0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g ,""));
 	});
 });
-
+*/
 $(function(){
 	//ID에 포커스
 	$("#id").focus();
 	//등록 버튼 클릭 시
 	$("#s_insert").click(function(){
+		var num2=/^([a-zA-Zㄱ-힣]){1}[a-zA-Zㄱ-힣0-9, !, @, #, $, %, ^, &, *, (, ), _, \-, =, +]{0,7}$/;
+		var num3=document.writeform.id.value.replace(/\s|　/gi, "");
 		//아이디가 공백이거나 8자 초과할 경우 실행
-		if( $("#id").val() == "" || $("#id").val().length > 8 ){
+		if( "" == num3 ){
 			//오류 출력
 			$("#idHelper").text("아이디를 입력해 주세요.");
 			//아이디에 포커스
 			$("#id").focus();
 			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
 		//이름이 공백이나 숫자이거나 2자 미만이면 실행
+		}else if( !document.writeform.id.value.match(num2) ){
+			if(  $("#id").val().length > 8 ){
+				$("#idHelper").text("8자리를 넘을 수 없습니다.");
+				//아이디에 포커스
+				$("#id").focus();
+				return false;
+			}else{
+				$("#idHelper").text("숫자로 시작할 수가 없습니다.");
+				//아이디에 포커스
+				$("#id").focus();
+				return false;
+			}
 		}else{
+			$("#idHelper").text("");
 			$("#writeform").submit();
 		}
 	});
 });
-
 
 $(function(){
 	//passwd에 포커스
 	$("#passwd").focus();
 	//등록 버튼 클릭 시
 	$("#s_insert").click(function(){
+		var pass1=document.writeform.passwd.value.replace(/\s|　/gi, "");
+		var passnum1=/([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/;
+		//var passnum2=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]){0,3}$/;
 		//비밀번호가 공백이거나 8자 초과할 경우 실행
-		if( $("#passwd").val() == "" || $("#passwd").val().length > 8){
-		//오류 출력
-		$("#passwordHelper").text("패스워드를 입력해 주세요.");
-		$("#passwd").focus();
-		return false; //flase로 리턴 하여 true일 때만 실행하게 설정
+
+		if( $("#passwd").val() == ""){
+			//오류 출력
+			$("#passwordHelper").text("비밀번호를 입력해 주세요.");
+			$("#passwd").focus();
+			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
 		//비밀번호 확인 공백이거나 비밀번호와 일치 않으면 실행
+		}else if( !document.writeform.passwd.value.match(passnum1) ){
+			if ($("#passwd").val().length > 8){
+				$("#passwordHelper").text("8자리를 넘을 수 없습니다.");
+				//아이디에 포커스
+				$("#passwd").focus();
+				return false;
+			}
+			if ($("#passwd").val().length<3){
+				$("#passwordHelper").text("3자리를 넘을 수 없습니다.");
+				//아이디에 포커스
+				$("#passwd").focus();
+				return false;
+			}
+			$("#passwordHelper").text("특수문자를 넣어 주세요");
+			//아이디에 포커스
+			$("#passwd").focus();
+			return false;
+			
+		}else if ($("#passwd").val().length<3){
+			$("#passwordHelper").text("3자리 이상 입력하세요.");
+			//아이디에 포커스
+			$("#passwd").focus();
+			return false;
 		}else{
+			$("#passwordHelper").text("");
 			$("#writeform").submit();
 		}
 	});
@@ -135,6 +154,7 @@ $(function(){
 			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
 		//닉네임이 공백이면 실행
 		}else{
+			$("#repasswordHelper").text("");
 			$("#writeform").submit();
 		}
 	});
@@ -151,6 +171,7 @@ $(function(){
 			$("#nickname").focus();
 			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
 		}else{
+			$("#nicknameHelper").text("");
 			$("#writeform").submit();
 		}
 	});
@@ -167,6 +188,7 @@ $(function(){
 			$("#tel").focus();
 			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
 		}else{
+			$("#telHelper").text("");
 			$("#writeform").submit();
 		}
 	});
@@ -183,6 +205,7 @@ $(function(){
 			$("#email1").focus();
 			return false; //flase로 리턴 하여 true일 때만 실행하게 설정
 		}else{
+			$("#email1Helper").text("");
 			$("#writeform").submit();
 		}
 	});
