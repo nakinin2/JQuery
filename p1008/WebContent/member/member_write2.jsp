@@ -41,9 +41,27 @@
     			
     		pstmt.executeUpdate();
     		%>
-    		<h4><%= id %></h4>
-    		<h4><%= name %></h4>
-    		<h4>등록되었다</h4>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+			<html>
+			<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title>결과 창</title>
+			</head>
+			<body>
+				<div data-role="page" id="page">
+				<div data-role="header">
+					<h1>회원가입 확인</h1>
+				</div>
+			    <div data-role="content">
+			    	<h4 align="center">회원가입이 되었습니다.</h4>
+			    	<a href="member2.html" data-role="button" data-mini="true" data-icon="home">쇼핑 하기</a>
+			    </div>
+			    <div data-role="footer" data-position="fixed">
+					<h4>footer 영역</h4>
+				</div>
+			    </div>
+			</body>
+			</html>
     		<% 
     			
     		//로그인 후, 사용자 홈으로 이동
@@ -56,14 +74,3 @@
    %>
 
   
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>결과 창</title>
-
-</head>
-<body>
-
-</body>
-</html>
