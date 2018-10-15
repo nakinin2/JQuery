@@ -122,15 +122,11 @@ $(function(){
 		var pass= writeform.passwd.value;
 		var passnum1=/([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/;
 		//비밀번호가 공백이거나 8자 초과할 경우 실행
-		if( space3 == "" ){
+		if( space3 == " " ){
 			if( $("#passwd").val().length >8){
 				//오류 출력
 				$("#passwordHelper").text("최대 8자리를 넘을 수 없습니다.");
 				//비밀번호에 포커스
-				$("#passwd").focus();
-				return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
-			}else if( $("#passwd").val().length > 0){
-				$("#passwordHelper").text("공백 없이 입력해 주세요.1");
 				$("#passwd").focus();
 				return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
 			}
@@ -151,31 +147,18 @@ $(function(){
 				$("#passwd").focus();
 				return false;
 			}
-			if ( (space3=="" ) || ($("#passwd").val().length > 2)  ){
-				$("#passwordHelper").text("공백 없이 입력해 주세요.2");
+				$("#passwordHelper").text("특수문자를 넣어 주세요");
 				//비밀번호에 포커스
 				$("#passwd").focus();
 				return false;
-			}else{
-				$("#passwordHelper").text("특수문자");
+		}else if(document.writeform.passwd.value.match(passnum1) ){
+			if ( ($("#passwd").val().length > 8) ){	
+				$("#passwordHelper").text("최대 8자리를 넘을 수 없습니다.");
 				//비밀번호에 포커스
 				$("#passwd").focus();
 				return false;
-			}
-
-		}else if ( ($("#passwd").val().length < 3) ){
-			$("#passwordHelper").text("최소 3자리 이상 입력해 주세요.2");
-			//비밀번호에 포커스
-			$("#passwd").focus();
-			return false;
-		}else if ( ($("#passwd").val().length > 8) ){
-			$("#passwordHelper").text("최대 8자리를 넘을 수 없습니다.");
-			//비밀번호에 포커스
-			$("#passwd").focus();
-			return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
-		}else if ( document.writeform.passwd.value.match(passnum1)){
-			if ( ($("#passwd").val().length >2)  && space3==""){
-				$("#passwordHelper").text("공백 없이 입력해 주세요.3");
+			}else if ( ($("#passwd").val().length < 3) ){
+				$("#passwordHelper").text("최소 3자리 이상 입력해 주세요.2");
 				//비밀번호에 포커스
 				$("#passwd").focus();
 				return false;
