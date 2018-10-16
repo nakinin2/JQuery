@@ -28,7 +28,7 @@
     		String passwd = request.getParameter("passwd");
     		String nickname= request.getParameter("nickname");
     		String tel = request.getParameter("tel");
-    		String email = request.getParameter("email1")+"@"+request.getParameter("email2");
+    		String email = request.getParameter("email1");
     		
     		sql="insert into member values(?, ?, ?, ?, ?, ?)";
     		pstmt=conn.prepareStatement(sql);

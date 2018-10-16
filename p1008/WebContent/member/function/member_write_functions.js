@@ -1,9 +1,9 @@
 /*
 function id_chk(){
-	$("#idHelper").text("중복된 아이디입니다.");
-	open("id_check.jsp?id="+document.writeform.id.value,target="display_area"); //중복체크를 확인을 위해 사용하는 명령어
+	open("id_check.jsp?id="+document.writeform.id.value,target="_self"); //중복체크를 확인을 위해 사용하는 명령어
 }
 */
+
 $(function(){
 	$("body").click(function(){
 		$("#nameHelper").off("click").text("");
@@ -118,8 +118,8 @@ $(function(){
 	//등록 버튼 클릭 시
 	$("#s_insert").click(function(){
 		//var space3=document.writeform.passwd.value.replace(/\s+|  /gi, "");
-		var space3=document.writeform.passwd.value.replace( /^\s+|\s+$/g, ""); 
-		var pass= writeform.passwd.value;
+		var space3=document.writeform.passwd.value.replace( /^\s+|\s+$/g, "");
+
 		var passnum1=/([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/;
 		//비밀번호가 공백이거나 8자 초과할 경우 실행
 		if( space3 == "" ){
@@ -129,17 +129,14 @@ $(function(){
 				//비밀번호에 포커스
 				$("#passwd").focus();
 				return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
-			}else if( $("#passwd").val().length > 0){
-				$("#passwordHelper").text("공백 없이 입력해 주세요.1");
-				$("#passwd").focus();
-				return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
 			}
 			//오류 출력
 			$("#passwordHelper").text("비밀번호를 입력해 주세요.");
 			$("#passwd").focus();
 			return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
 		//비밀번호 확인 공백이거나 비밀번호와 일치 않으면 실행
-		}else if( !document.writeform.passwd.value.match(passnum1) ){			
+		}else if( !document.writeform.passwd.value.match(passnum1) ){
+
 			if ( ($("#passwd").val().length > 8) ){
 				$("#passwordHelper").text("최대 8자리를 넘을 수 없습니다.");
 				//비밀번호에 포커스
@@ -150,37 +147,35 @@ $(function(){
 				//비밀번호에 포커스
 				$("#passwd").focus();
 				return false;
-			}
-			if ( (space3=="" ) || ($("#passwd").val().length > 2)  ){
-				$("#passwordHelper").text("공백 없이 입력해 주세요.2");
-				//비밀번호에 포커스
-				$("#passwd").focus();
-				return false;
-			}else{
-				$("#passwordHelper").text("특수문자");
+			}else if ( (document.writeform.passwd.value.indexOf(" ") > -1) ){
+				$("#passwordHelper").text("공백 없이 입력해 주세요.");
 				//비밀번호에 포커스
 				$("#passwd").focus();
 				return false;
 			}
-
-		}else if ( ($("#passwd").val().length < 3) ){
-			$("#passwordHelper").text("최소 3자리 이상 입력해 주세요.2");
+			$("#passwordHelper").text("특수문자를 입력해 주세요.");
 			//비밀번호에 포커스
 			$("#passwd").focus();
-			return false;
-		}else if ( ($("#passwd").val().length > 8) ){
-			$("#passwordHelper").text("최대 8자리를 넘을 수 없습니다.");
-			//비밀번호에 포커스
-			$("#passwd").focus();
-			return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
-		}else if ( document.writeform.passwd.value.match(passnum1)){
-			if ( ($("#passwd").val().length >2)  && space3==""){
-				$("#passwordHelper").text("공백 없이 입력해 주세요.3");
+			return true;
+		}else if( document.writeform.passwd.value.match(passnum1) ){
+			if ( ($("#passwd").val().length < 3) ){
+				$("#passwordHelper").text("최소 3자리 이상 입력해 주세요.2");
+				//비밀번호에 포커스
+				$("#passwd").focus();
+				return false;
+			}else if ( ($("#passwd").val().length > 8) ){
+				$("#passwordHelper").text("최대 8자리를 넘을 수 없습니다.");
+				//비밀번호에 포커스
+				$("#passwd").focus();
+				return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
+			}else if ( (document.writeform.passwd.value.indexOf(" ") > -1) ){
+				$("#passwordHelper").text("공백 없이 입력해 주세요.");
 				//비밀번호에 포커스
 				$("#passwd").focus();
 				return false;
 			}
-		}else{
+		}
+		else{
 			$("#passwordHelper").text("");
 			$("#writeform").submit();
 		}
@@ -222,6 +217,11 @@ $(function(){
 				//닉네임에 포커스
 				$("#nickname").focus();
 				return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
+			}else if ( (document.writeform.nickname.value.indexOf(" ") > -1) ){
+				$("#nicknameHelper").text("공백 없이 입력해 주세요.");
+				//비밀번호에 포커스
+				$("#nickname").focus();
+				return false;
 			}
 			//오류 출력
 			$("#nicknameHelper").text("닉네임을 입력해 주세요.");
@@ -248,6 +248,11 @@ $(function(){
 			$("#nicknameHelper").text("최소 2자리 이상 입력해 주세요.");
 			$("#nickname").forcus();
 			return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
+		}else if ( (document.writeform.nickname.value.indexOf(" ") > -1) ){
+			$("#nicknameHelper").text("공백 없이 입력해 주세요.");
+			//비밀번호에 포커스
+			$("#nickname").focus();
+			return false;
 		}else{
 			$("#nicknameHelper").text("");
 			$("#writeform").submit();
@@ -320,11 +325,15 @@ $(function(){
 	//eamil1에 포커스
 	$("#email1").focus();
 	$("#s_insert").click(function(){
-
+		var email_pattern =/^([a-z0-9])[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/i;
 		//이메일이 공백이거나 10자 초과일 시 실행
-		if( $("#email1").val() == "" || $("#email1").val().length() > 10 ){
+		if( $("#email1").val() == "" ){
 			//오류 출력
 			$("#email1Helper").text("이메일을 입력해 주세요.");
+			$("#email1").focus();
+			return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
+		}else if( !document.writeform.email1.value.match(email_pattern) ){
+			$("#email1Helper").text("유효하지 않는 이메일입니다.");
 			$("#email1").focus();
 			return false;	//flase로 리턴 하여 true일 때만 실행하게 설정
 		}else{
