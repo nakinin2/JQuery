@@ -1,9 +1,27 @@
 /*
 function id_chk(){
-	open("id_check.jsp?id="+document.writeform.id.value,target="_self"); //중복체크를 확인을 위해 사용하는 명령어
+	window.open("id_check.jsp?id="+document.writeform.id.value,target="_self"); //중복체크를 확인을 위해 사용하는 명령어
 }
-*/
 
+
+function id_chk(){
+	$("#id_check").click(function(){
+		$.ajax({
+			url:"id_check.jsp",
+			type:"POST",
+			dataType:"text",
+			success: function(data){
+				if (data){
+					$("#idHelper").html(data);
+				}else {
+					$("#idHelper").html(data);
+				}
+			}//end success
+		});//end ajax
+		return false;
+	});//end click
+};
+*/
 $(function(){
 	$("body").click(function(){
 		$("#nameHelper").off("click").text("");
@@ -342,4 +360,57 @@ $(function(){
 		}
 	});
 });
+/*
+$(function(){
+	$("#id_check").off().on("click",function(){
+		if ( (document.writeform.id.value.indexOf(" ") > -1) ){
+			$("#idHelper").text("공백 없이 입력해 주세요.");
+			//비밀번호에 포커스
+			$("#id").focus();
+			return false;
+		}else if ( ($("#id").val().length < 2) ){
+			$("#idHelper").text("최소 2자리 이상 입력해 주세요.");
+			//비밀번호에 포커스
+			$("#id").focus();
+			return false;
+		}
+		isAjaxing = true;
+		$.ajax({
+			url:"id_check.jsp",
+			type:"POST",
+			dataType:"html",
+			data:{
+				id:$("#id").val()
+			},
+			success: function(data){
+				if (data){
+					$("#idHelper").html(data);
+					setTimeout(function() {
+						isAjaxing = false;
+					}, 3000);
+					
+					return false;
+					if(data.length < 2){
+						$("#idHelper").text("최소 2자리 이상 입력해 주세요.");
+						//비밀번호에 포커스
+						$("#id").focus();
+						return false;
+					}
+				}else {
+					$("#idHelper").html(data);
+					setTimeout(function() {
+						isAjaxing = false;
+					}, 3000);
+					return false;
+				}
+			},//end success
+			error: function(data){
+				alert("오류가 발생했습니다.");
+			}
+		});//end ajax
+		$("#idHelper").text("");
 
+		return false;
+	});//end click
+});
+*/

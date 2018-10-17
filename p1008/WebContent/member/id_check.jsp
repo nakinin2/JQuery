@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*"%>
-    <!DOCTYPE html>
+   
 <%request.setCharacterEncoding("utf-8"); %>
 
 <%
@@ -35,17 +35,11 @@
 		//ID가 중복일 경우
 		if(rs.next()){
 			%>
-			<script type="text/javascript">
-				alert("중복아이디\n 이미 등록된 아이디잖아!");
-				history.back();
-			</script>
+				<span>등록된 아이디입니다.</span>
 			<%
 		}else{
 			%>
-			<script type="text/javascript">
-				alert("사용 가능한 아이디다.");
-				history.back();
-			</script>
+				<span>등록 가능한 아이디입니다.</span>
 			<%
 		}
 	}catch(SQLException e){
@@ -57,4 +51,3 @@ function add(){
 history.back();
 }
 </script>
-<body onload="add()"></body>
