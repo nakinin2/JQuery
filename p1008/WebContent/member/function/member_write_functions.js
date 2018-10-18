@@ -2,42 +2,7 @@
 function id_chk(){
 	window.open("id_check.jsp?id="+document.writeform.id.value,target="_self"); //중복체크를 확인을 위해 사용하는 명령어
 }
-
-
-function id_chk(){
-	$("#id_check").click(function(){
-		$.ajax({
-			url:"id_check.jsp",
-			type:"POST",
-			dataType:"text",
-			success: function(data){
-				if (data){
-					$("#idHelper").html(data);
-				}else {
-					$("#idHelper").html(data);
-				}
-			}//end success
-		});//end ajax
-		return false;
-	});//end click
-};
-
-
-function chkform(){
-		var idvalue=""
-		var id_check = document.writeform.id_check1.value;
-		//var idchk = $("#input['name=id_check']").val();
-		var idchk = document.writeform.id_check2.value;
-		if ( idchk == 1){
-			$("#idHelper").text("아이디 중복 버튼을 눌러 주세요.");
-			return false ;
-		}else{
-			return false;
-		}
-		
-};
 */
-
 
 
 $(function(){
@@ -220,9 +185,9 @@ $(function(){
 	//repasswd에 포커스
 	$("#repasswd").focus();
 	//등록 버튼 클릭 시
-	$("#s_insert").click(function(){
+	$("#s_insert").click(function() {
 		//비밀번호 확인이 공백이거나 비밀번호와 일치하지 않을 경우 실행
-		if( $("#repasswd").val() == "" || $("#passwd").val() != $("#repasswd").val()){
+		if( $("#repasswd").val() == "" || $("#passwd").val() != $("#repasswd").val() ) {
 			//오류 출력
 			$("#repasswordHelper").text("비밀번호가 일치하지 않습니다.");
 			$("#repasswd").focus();
@@ -320,37 +285,6 @@ $(function(){
 		}
 	});
 });
-/*
-//jQuery 로 핸드폰 번호 입력시 하이푼(-) 자동으로 넣고 빼기 
-
-$(function(){ 
-    $("#tel").blur(function(){
-    	var num = $("#tel").val();
-    	blur(num)
-    });
-    $("#tel").click(function(){
-    	var num = $("#tel").val();
-    	focus(num);
-    });
-});
-
-function focus(num) {//액션이 발생하면 실행
-	num = num.replace(/[^0-9]/g, '');
-	$("#tel").val(num);
-}
-
-function blur(num) {//액션이 끝났을 때 실행
-	num = num.replace(/[^0-9]/g, '');
-	var tmp = '';
-	tmp += num.substr(0, 3);
-	tmp += '-';
-	tmp += num.substr(3, 4);
-	tmp += '-';
-	tmp += num.substr(7);
-	$("#tel").val(tmp);
-}
-
-*/
 
 //이메일 메소드(실시간 체크)
 $(function(){
@@ -384,60 +318,7 @@ $(function(){
 		}
 	});
 });
-/*
-$(function(){
-	$("#id_check1").off().on("click",function(){
-		if ( (document.writeform.id.value.indexOf(" ") > -1) ){
-			$("#idHelper").text("공백 없이 입력해 주세요.");
-			//비밀번호에 포커스
-			$("#id").focus();
-			return false;
-		}else if ( ($("#id").val().length < 2) ){
-			$("#idHelper").text("최소 2자리 이상 입력해 주세요.");
-			//비밀번호에 포커스
-			$("#id").focus();
-			return false;
-		}
-		isAjaxing = true;
-		$.ajax({
-			url:"id_check.jsp",
-			type:"POST",
-			dataType:"html",
-			data:{
-				id:$("#id").val()
-			},
-			success: function(data){
-				if (data){
-					$("#idHelper").html(data);
-					setTimeout(function() {
-						isAjaxing = false;
-					}, 3000);
-					
-					return false;
-					if(data.length < 2){
-						$("#idHelper").text("최소 2자리 이상 입력해 주세요.");
-						//비밀번호에 포커스
-						$("#id").focus();
-						return false;
-					}
-				}else {
-					$("#idHelper").html(data);
-					setTimeout(function() {
-						isAjaxing = false;
-					}, 3000);
-					return false;
-				}
-			},//end success
-			error: function(data){
-				alert("오류가 발생했습니다.");
-			}
-		});//end ajax
-		$("#idHelper").text("");
 
-		return false;
-	});//end click
-});
-*/
 //아이디를 입력하는 도중에 실시간으로 중복확인 하는 방법
 $(function() {
 	$("#id").keyup(function() {
@@ -456,7 +337,7 @@ $(function() {
 			//비밀번호에 포커스
 			$("#id").focus();
 			return false;
-		}
+		}//end if
 		isAjaxing = true;
 		$.ajax({
 			url:"id_check.jsp",
@@ -496,11 +377,6 @@ $(function() {
 	$("#s_insert").click(function() {
 		if ( document.writeform.id.value.indexOf(" ") > -1 ) {
 			$("#idHelper").text("공백 없이 입력해 주세요.");
-			//비밀번호에 포커스
-			$("#id").focus();
-			return false;
-		}else if ( $("#id").val().length < 2 ) {
-			$("#idHelper").text("최소 2자리 이상 입력해 주세요.");
 			//비밀번호에 포커스
 			$("#id").focus();
 			return false;

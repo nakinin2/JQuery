@@ -35,11 +35,11 @@
 		//ID가 중복일 경우
 		if(rs.next()){
 			%>
-				<span>등록된 아이디입니다.</span>
+				<span>이미 등록된 아이디입니다.</span>
 			<%
 		}else{
 			%>
-				<span>등록 가능한 아이디입니다.</span>
+				<span>사용 가능한 아이디입니다.</span>
 			<%
 		}
 	}catch(SQLException e){

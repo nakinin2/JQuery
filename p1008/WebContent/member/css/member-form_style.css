@@ -9,11 +9,11 @@ input{
 
 }
 #header-btn{
-background-color: white;
-color: black;
+	background-color: white;
+	color: black;
 }
-#s_insert, #reset{
-	background-color: fuchsia;
+#s_insert, #reset, #id_check{
+	background-color: white;
 }
 #idHelper, #nameHelper, #passwordHelper, #repasswordHelper, #nicknameHelper , #addrHelper, #telHelper, #email1Helper{
 	color:blue;
