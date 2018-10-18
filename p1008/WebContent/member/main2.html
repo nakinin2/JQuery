@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>쇼핑몰</title>
+<style type="text/css">
+body{
+	margin:0;
+	padding:0;
+	line-height:1.2em;
+	font-size:0.75em;
+	background-color:gray;
+}
+
+.wrap{
+	margin:0;
+	margin-right: auto;
+	margin-left: auto;
+	width:900px;
+	min-height:600px;
+	text-align:left;
+	background-color:white;
+}
+
+header{
+	vertical-align:middle;
+	height:80px;
+}
+header .right a:hover{
+	color:gray;
+}
+
+.left{
+	float:left;
+	margin-left:20px;
+	
+}
+
+.right{
+	float:right;
+	
+}
+
+img{
+	border:none;
+}
+
+#logo{
+	float:left;
+	vertical-algin:middle;
+	margin:30px 0 0 20px;
+	color:darkblue;
+	font-size:40px;
+}
+
+.clear{
+	clear:both;
+}
+
+a{
+	text-decoration:none;
+}
+
+hr{
+	clear:both;
+}
+
+nav{
+	margin:0 0 20px 0;
+	float:left;
+	width:900px;
+	background-color:aqua;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	color:#ff0099;
+}
+
+nav ul li{
+	float:left;
+	margin:0 5px;
+	list-style:none;
+}
+
+nav ul{
+	list-style:none;
+}
+
+nav a{
+	display:block;
+	padding:5px;
+	height:20px;
+	text-decoration:none;
+	color:#000000;
+	border-style:hidden hidden solid hidden;
+	border-color:transparent;
+}
+
+footer{
+height:70px;
+}
+
+footer #copyright{
+	maring:20px 0 0 10px;
+	text-align:center;
+	font-family: consolas;
+	font-weight:bold;
+}
+
+footer #SNS{
+	margin:10px 20px 0 0;
+	text-align:center;
+}
+
+aside{
+	margin:5px;
+}
+
+article{
+	margin:5px 0 10px 0;
+}
+
+#login{
+	margin:30px;
+}
+
+#login fieldset span{
+	display:inline-block;
+	width:150px;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+	<a id="logo" href="main.html">Pooh쇼핑몰</a>
+	<span class="right" style="padding:30px 10px;">
+	<form method=post action="Login.jsp">
+	<fieldset data-role="fieldcontain">
+	
+	 <!--회원ID (required는 반드시 입력 값이 있어야 한다)-->
+	 <label for="ID">회원ID:</label>
+	 <input type="text" id="id" name="id" size="10" maxlength="10" required="required">
+	 
+	 <!--비밀번호-->
+	 <label for="pswd">비밀번호:</label>
+	 <input type="password" id="passwd" name="passwd" size="10" maxlength="10" required="required">
+	 
+	 <button type="submit" data-role="button" data-inline="true">로그인</button>
+	
+	<a href="member-form.html" target="display_area">회원가입</a>
+	</fieldset></form></span>
+</header>
+
+<nav>
+	 <ul>
+		  <li><a href="intro.html" target="display_area">회사소개</a></li>
+		  <li><a href="part_list.jsp" target="display_area">부품정보</a></li>
+		  <li><a href="customer.jsp" target="display_area">고객정보</a></li>
+		  <li><a href="#" target="display_area">견적관리</a></li>
+		  <li><a href="#" target="display_area">정비이력</a></li>
+		  <li><a href="list.jsp" target="display_area" align="right">게시판</a></li>
+	 </ul>
+</nav>
+<hr>
+
+<article class="left">
+     <iframe name="display_area" src="images/pooh.jpg" width="750px" height="466px"></iframe>
+</article>
+<aside class="right">
+     <a href="member_form.html"  target="display_area"><button id="save_favorite" style="width:85px" disabled>고객등록</button></a><br>
+	 
+	 <a href="repair,jsp" target="display_area"><button id="save_favorite" style="width:85px" disabled>정비등록</button></a><br>
+
+	 <a href="part.jsp" target="display_area"><button id="memo" style="width:85px" disabled>부품등록</button></a><br>
+	 
+	 <button id="location" style="width:85px" disabled>현재위치</button>
+</aside>
+<hr>
+
+<footer>
+	<div id="copyright">
+		Copyright (c) 2018 yangjeong All rights reserved
+	</div>
+	
+	<div id="SNS">
+		<a href="http://facebook.com" target="_blank">
+			<img src="images/facebook.gif" height="32" alt="Facebook">
+		</a>
+		
+		<a href="http://twitter.com" target="_blank">
+			<img src="images/twitter.gif" height="32" alt="Twitter">
+		</a>
+		
+		<a href="http://plus.google.com" target="_blank">
+			<img src="images/googleplus-icon.png" height="32" alt="Google Plus">
+		</a>
+	</div>
+
+</footer>
+</div>
+</body>
+</html>

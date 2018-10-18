@@ -6,8 +6,15 @@ input{
 	border-top:0px;
 	boder-left:0px;
 	boder-bottom:0px;
-}
 
+}
+#header-btn{
+background-color: white;
+color: black;
+}
+#s_insert, #reset{
+	background-color: fuchsia;
+}
 #idHelper, #nameHelper, #passwordHelper, #repasswordHelper, #nicknameHelper , #addrHelper, #telHelper, #email1Helper{
 	color:blue;
 	font-size: x-small;

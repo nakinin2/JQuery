@@ -14,32 +14,6 @@
 <!-- 
 
 <script type="text/javascript">
-function id_chk(){
-	$("#id_check").click(function(){
-		var id =$("#id").val();
-		$.ajax({
-			url:"id_check.jsp",
-			type:"POST",
-			dataType:"html",
-			data:({
-				id
-			}),
-			success: function(data){
-				if (data){
-					$("#idHelper").html(data);
-				}else {
-					$("#idHelper").html(data);
-				}
-			}//end success
-		});//end ajax
-		return false;
-	});//end click
-};
-
-</script>
--->
-
-<script type="text/javascript">
 var isRun = false;
 $(function(){
 	$("#id_check").off().on("click",function(){
@@ -95,15 +69,43 @@ $(function(){
 
 </script>
 
+
+<script type="text/javascript">
+
+function chkform(){
+
+		var clicked = 0;
+		var idchk = $("#input[name=id_check]").val();
+		if ( idchk==0){
+			$("#idHelper").text("아이디 중복 버튼을 눌러 주세요.");
+			$("#nameHelper").off("click").text("");
+			$("#passwordHelper").off("click").text("");
+			$("#repasswordHelper").off("click").text("");
+			$("#nicknameHelper").off("click").text("");
+			$("#telHelper").off("click").text("");
+			$("#email1Helper").off("click").text("");
+			return false;
+		}
+
+			return true;
+		
+
+};
+
+</script>
+-->
+
+
+
 </head> 
 <body> 
 
 <div data-role="page" id="page" >
 	<div data-role="header" data-theme="b">
-		<h1>회원 가입 창</h1>
+		<h1>회원 가입</h1>
 	</div>
 	<div data-role="content">
-       	<form name="writeform" method="post" action="member_write2.jsp">
+       	<form name="writeform" method="post" action="member_write2.jsp" >
             <table>
                  <tr>
                     <td><!-- 성명-->
@@ -119,7 +121,9 @@ $(function(){
 	               </td><!--값을 비워서 없는 것처럼 보이게 하기-->
                     <td>
                     	<!--  <span id="idHelper"></span>-->
-                    	<input type="button" value="중복체크"  id="id_check" onclick="id_chk()" data-role="button"data-mini="true" data-theme="b">&nbsp;
+                    	<input type="button" value="중복체크" id="id_check1" onclick="id_chk()" data-role="button"data-mini="true" data-theme="b">&nbsp;
+                   		<input type = "hidden" name="id_check2" id="id_check2" value="0">
+                   		<input type = "hidden" name="id_check3" id="id_check3" value="1">
                    	</td>
                 </tr>
                 <tr>
@@ -160,14 +164,14 @@ $(function(){
                     <td></td>    
                 </tr>             
                 <tr>
-                    <td><input type="submit"  value="등록"  id="s_insert"  data-mini="true" onclick="id_chk()" data-theme="b"></td>
+                    <td><input type="submit"  value="가입"  id="s_insert"  data-mini="true"  data-theme="b"></td>
                     <td><input type="reset" value="다시 작성" data-mini="true" data-theme="b"></td>
                 </tr>
             </table>
         </form>
 	</div>		
 	<div data-role="footer" data-position="fixed" data-theme="b">
-		<h4>footer 영역</h4>
+		<h4></h4>
 	</div>
 </div>
 </body>
