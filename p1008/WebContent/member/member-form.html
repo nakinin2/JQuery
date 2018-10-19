@@ -17,9 +17,8 @@
 <!-- <script type="text/javascript">
 //중복 체크를 안 하면 실행
 function chkform(){
-		var clicked = 0;
-		var idchk = $("#id_check2").val();
-		if ( document.writeform.id_check2.value == ""){
+		var idchk = document.writeform.id_check2.value;
+		if ( idchk == "" ) {
 			$("#idHelper").text("아이디 중복 버튼을 눌러 주세요.");
 			$("#nameHelper").off("click").text("");
 			$("#passwordHelper").off("click").text("");
@@ -48,9 +47,11 @@ function chkform(){
 			$("#telHelper").off("click").text("");
 			$("#email1Helper").off("click").text("");
 			document.writeform.id_check2.value="1";
+			
 			return false;
 		}
 		$("writeform").submit();
+		
 		return true;
 };
 

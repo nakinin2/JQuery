@@ -338,7 +338,6 @@ $(function() {
 			$("#id").focus();
 			return false;
 		}//end if
-		isAjaxing = true;
 		$.ajax({
 			url:"id_check.jsp",
 			type:"POST",
@@ -349,15 +348,10 @@ $(function() {
 			success: function(data){
 				if (data){
 					$("#idHelper").html(data);
-					setTimeout(function() {
-						isAjaxing = false;
-					}, 3000);
 					return false;
 				}else {
 					$("#idHelper").html(data);
-					setTimeout(function() {
-						isAjaxing = false;
-					}, 3000);
+
 					return false;
 				}//end else
 			},//end success
@@ -370,6 +364,12 @@ $(function() {
 	});//end click
 });
 
+/*
+isAjaxing = true;
+setTimeout(function(){ //ajax 중괄호 안에 넣기
+	isAjaxing = false;
+}, 3000);
+*/
 
 /*
 //아이디를 입력하는 도중에 실시간으로 중복확인 하는 방법
@@ -386,7 +386,6 @@ $(function() {
 			$("#id").focus();
 			return false;
 		}
-		isAjaxing = true;
 		$.ajax({
 			url:"id_check.jsp",
 			type:"POST",
@@ -397,15 +396,9 @@ $(function() {
 			success: function(data){
 				if (data){
 					$("#idHelper").html(data);
-					setTimeout(function() {
-						isAjaxing = false;
-					}, 3000);
 					return false;
 				}else {
 					$("#idHelper").html(data);
-					setTimeout(function() {
-						isAjaxing = false;
-					}, 3000);
 					return false;
 				}//end else
 			},//end success

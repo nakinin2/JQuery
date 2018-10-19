@@ -55,7 +55,7 @@
 			    <div data-role="content">
 			    	<h4 align="center">회원가입이 되었습니다.</h4>
 			    	<h4 align="center">즐거운 쇼핑이 되시길 바랍니다.</h4>
-			    	<a href="member-form.html" data-role="button" data-mini="true" data-icon="home">쇼핑 하기</a>
+			    	<a href="main.html" data-role="button" data-mini="true" data-icon="home">쇼핑 하기</a>
 			    </div>
 			    <div data-role="footer" data-position="fixed" data-theme="b">
 					<div id="copyright">

@@ -12,40 +12,83 @@
 <link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
 <link href="css/member-form_style.css" rel="stylesheet" type="text/css"/>
 <script src="function/member_write_functions.js"  type="text/javascript"></script>
+<script type="text/javascript">
+/*
+jQuery(function() {
+	$(document).ready(function(){
+        $.ajax({
+            url: 'login.jsp',
+            type: 'POST',
+            dataType: 'html',
+            timeout:1000,
+            success: function(data) {
+                $('#panelContent').html(data);
+                return false;
+            },error: function (data) {
+                alert("오류");
+                return false;
+            }
+        });
+	});
+});
 
+$(function() {
+	$("#open").off().on("click",function() {
+		$.ajax({
+			url:"login.jsp",
+			type:"POST",
+			dataType:"html",
+			success: function(data){
+				$("#panelContent").html(data);
+				return false;
+			},//end success
+			error: function(xhr, ajaxOptions, thrownError){
+				alert(xhr.status);
+		        alert(thrownError);
+		        return false;
+			}//end error
+		});//end ajax
+	});//end click
+});
+*/
+$(function(){
+	$("#open").click(function() {
+		$("#page3").slideUp("slow");
+	});
+});
+</script>
 </head>
 <body>
 <div data-role="page" id="page" >
-
-
 <div id="header" data-role="header" data-theme="a">
-
-		<div>
-			<p align="center"><a id="logo" href="main.html" >Pooh쇼핑몰</a></p>
-	 		<p align="right">
-	 			<a href=" login.jsp" data-inline="true" >로그인</a>
-				<a href="member-form.html" data-inline="true"  >회원가입</a>
-	 		</p>
-	 </div>
-
+	<p id="#header-text"><a id="logo" href="main.html" >Pooh쇼핑몰</a><p>
+	<span class="right" style="padding:30px 10px;">
+	<form method=post action="Login.jsp">
+	<fieldset data-role="fieldcontain">
+	 			<a href="#page3" id="open" data-inline="true" data-transition="slideup">로그인</a>
+				<a href="member-form.html"  target="display_area">회원가입</a>
+	 </fieldset>
+	 </form>
+	 </span>
 </div>
 <div data-role="content">
-<nav>
+<div id="nav" data-role="navbar" >
 	 <ul>
-		  <li><a href="intro.html" target="display_area">회사소개</a></li>
+		  <li><a href="intro.html" target="display_area" class="ui-btn">회사소개</a></li>
 		  <li><a href="part_list.jsp" target="display_area">부품정보</a></li>
 		  <li><a href="customer.jsp" target="display_area">고객정보</a></li>
 		  <li><a href="#" target="display_area">견적관리</a></li>
 		  <li><a href="#" target="display_area">정비이력</a></li>
-		  <li><a href="list.jsp" target="display_area" >게시판</a></li>
+		  <li><a href="list.jsp" target="display_area">게시판</a></li>
 	 </ul>
-</nav>
+</div>
 <hr>
 
 <article class="left">
-     <iframe name="display_area" src="images/pooh.jpg" width="750px" height="466px"></iframe>
+     <iframe name="display_area" src="images/logo.jpg" width="750px" height="466px"></iframe>
 </article>
 <aside class="right">
+
      <a href="member_form.html"  target="display_area"><button id="save_favorite" style="width:85px" disabled>고객등록</button></a><br>
 	 
 	 <a href="repair,jsp" target="display_area"><button id="save_favorite" style="width:85px" disabled>정비등록</button></a><br>
@@ -55,27 +98,51 @@
 	 <button id="location" style="width:85px" disabled>현재위치</button>
 </aside>
 <hr>
+</div>
 
 <div data-role="footer" data-position="fixed" data-theme="a">
 	<div id="copyright" align="center">
 		Copyright (c) 2018 yangjeong All rights reserved
 	</div>
-	
 	<div id="SNS" align="center">
 		<a href="http://facebook.com" target="_blank">
 			<img src="images/facebook.gif" height="32" alt="Facebook">
 		</a>
-		
 		<a href="http://twitter.com" target="_blank">
 			<img src="images/twitter.gif" height="32" alt="Twitter">
 		</a>
-		
 		<a href="http://plus.google.com" target="_blank">
 			<img src="images/googleplus-icon.png" height="32" alt="Google Plus">
 		</a>
 	</div>
 </div>
+<div data-role="panel" id="page2" data-position="right">    
+      <div id="panelContent"></div>   
 </div>
+</div>
+
+
+    
+<div data-role="page" id="page3" >
+	    <div data-role="header">
+			<h1>header 영역</h1>
+		</div>
+		<div data-role="cotent">
+			<form>
+		        <h3 align="center">로그인</h3>
+		        <label for="name">아이디:</label>
+		        <input name="name" id="name" type="text" value="" data-mini="ture" data-clear-btn="true">
+		        <label for="password">비밀번호:</label>
+		        <input type="password" id="password" name="password" value="" data-mini="ture" data-clear-btn="true">
+		        <div class="ui-grid-a">
+		            <div class="ui-block-a"><a href="main.html" data-role="button" data-rel="close">취소</a></div>
+		        	<div class="ui-block-b"><a href="#" data-role="button" data-rel="close">저장</a></div>
+		    	</div>    
+			</form>
+	    </div>
+	 	<div data-role="footer" data-position="fixed">
+			<h4>footer 영역</h4>
+		</div>
 </div>
 </body>
 </html>
