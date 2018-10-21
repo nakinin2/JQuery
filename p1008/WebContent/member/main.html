@@ -12,6 +12,10 @@
 <link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
 <link href="css/member-form_style.css" rel="stylesheet" type="text/css"/>
 <script src="function/member_write_functions.js"  type="text/javascript"></script>
+<link rel="stylesheet" href="css/demo.css?v=2">
+<script type="text/javascript" src="jquery/modernizr.js"></script>
+<script type="text/javascript" src="jquery/demo.js"></script>
+
 <script type="text/javascript">
 /*
 jQuery(function() {
@@ -56,69 +60,83 @@ $(function(){
 		$("#page3").slideUp("slow");
 	});
 });
+
+
 </script>
 </head>
 <body>
 <div data-role="page" id="page" >
-<div id="header" data-role="header" data-theme="a">
-	<p id="#header-text"><a id="logo" href="main.html" >Pooh쇼핑몰</a><p>
-	<span class="right" style="padding:30px 10px;">
-	<form method=post action="Login.jsp">
-	<fieldset data-role="fieldcontain">
-	 			<a href="#page3" id="open" data-inline="true" data-transition="slideup">로그인</a>
-				<a href="member-form.html"  target="display_area">회원가입</a>
-	 </fieldset>
-	 </form>
-	 </span>
-</div>
-<div data-role="content">
-<div id="nav" data-role="navbar" >
-	 <ul>
-		  <li><a href="intro.html" target="display_area" class="ui-btn">회사소개</a></li>
-		  <li><a href="part_list.jsp" target="display_area">부품정보</a></li>
-		  <li><a href="customer.jsp" target="display_area">고객정보</a></li>
-		  <li><a href="#" target="display_area">견적관리</a></li>
-		  <li><a href="#" target="display_area">정비이력</a></li>
-		  <li><a href="list.jsp" target="display_area">게시판</a></li>
-	 </ul>
-</div>
-<hr>
-
-<article class="left">
-     <iframe name="display_area" src="images/logo.jpg" width="750px" height="466px"></iframe>
-</article>
-<aside class="right">
-
-     <a href="member_form.html"  target="display_area"><button id="save_favorite" style="width:85px" disabled>고객등록</button></a><br>
-	 
-	 <a href="repair,jsp" target="display_area"><button id="save_favorite" style="width:85px" disabled>정비등록</button></a><br>
-
-	 <a href="part.jsp" target="display_area"><button id="memo" style="width:85px" disabled>부품등록</button></a><br>
-	 
-	 <button id="location" style="width:85px" disabled>현재위치</button>
-</aside>
-<hr>
-</div>
-
-<div data-role="footer" data-position="fixed" data-theme="a">
-	<div id="copyright" align="center">
-		Copyright (c) 2018 yangjeong All rights reserved
+	<div id="header" data-role="header" data-theme="a">
+		<div align="center"><a id="logo" href="main.html" data-role="none" target="display_area" >Pooh쇼핑몰</a></div>
+		<div class="right" data-role="navbar" data-iconpos="left">
+			<ul>
+				<li><a id="login-btn" class="ui-corner-all ui-icon-user ui-btn-icon-left " href="#page4" data-transition="popup" data-rel="popup" data-position-to="window" ></a></li>
+				<li><a href="member-form.html" id="regist-btn" class="ui-corner-all ui-icon-user ui-btn-icon-left" data-position-to="window" ></a></li>
+			</ul>
+		</div>
+		<div class="ui-corner-all" id="page4" data-role="popup" data-theme="a" >
+		    <form method="post" id="login-form">
+		        <div style="padding: 10px 20px;">
+		            <h3 align="center" data-inline="true" >로그인</h3>
+		            <label class="ui-hidden-accessible" for="un">Username:</label>
+		            <input name="user" id="un" type="text" placeholder="username" value="" data-theme="a">
+		            <label class="ui-hidden-accessible" for="pw">Password:</label>
+		           	<input name="pass" id="pw" type="password" placeholder="password" value="" data-theme="a">
+					<button class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check" type="submit"  data-inline="true"  id="sign">Sign in</button>
+		        	
+		        </div>
+		    </form>
+	    </div>
 	</div>
-	<div id="SNS" align="center">
-		<a href="http://facebook.com" target="_blank">
-			<img src="images/facebook.gif" height="32" alt="Facebook">
-		</a>
-		<a href="http://twitter.com" target="_blank">
-			<img src="images/twitter.gif" height="32" alt="Twitter">
-		</a>
-		<a href="http://plus.google.com" target="_blank">
-			<img src="images/googleplus-icon.png" height="32" alt="Google Plus">
-		</a>
+		
+	<div data-role="content">
+		<div id="nav" >
+			 <ul>
+				  <li><a href="intro.html" target="display_area">회사소개</a></li>
+				  <li><a href="part_list.jsp" target="display_area">부품정보</a></li>
+				  <li><a href="customer.jsp" target="display_area">고객정보</a></li>
+				  <li><a href="#" target="display_area">견적관리</a></li>
+				  <li><a href="#" target="display_area">정비이력</a></li>
+				  <li><a href="list.jsp" target="display_area">게시판</a></li>
+			 </ul>
+		</div>
+		
+		<hr>
+		
+		<article class="left" id="article">
+		     <iframe name="display_area" src="images/logo.jpg" width="622px" height="466px"></iframe>
+		</article>
+		
+		<aside class="right" id="aside">
+		     <a href="member_form.html"  target="display_area"><button id="save_favorite" disabled>고객등록</button></a><br>	 
+			 <a href="repair,jsp" target="display_area"><button id="save_favorite"  disabled>정비등록</button></a><br>		
+			 <a href="part.jsp" target="display_area"><button id="memo" disabled>부품등록</button></a><br>			 
+			 <button id="location" style="width:85px" disabled>현재위치</button>
+		</aside>
+		
+		<hr>	
 	</div>
-</div>
-<div data-role="panel" id="page2" data-position="right">    
-      <div id="panelContent"></div>   
-</div>
+	
+	<div id="footer" data-role="footer" data-position="fixed" data-theme="a">
+		<div id="copyright" >
+			Copyright (c) 2018 yangjeong All rights reserved
+		<div id="SNS">
+			<a href="http://facebook.com" target="_blank">
+				<img src="images/facebook.gif" height="32" alt="Facebook">
+			</a>
+			<a href="http://twitter.com" target="_blank">
+				<img src="images/twitter.gif" height="32" alt="Twitter">
+			</a>
+			<a href="http://plus.google.com" target="_blank">
+				<img src="images/googleplus-icon.png" height="32" alt="Google Plus">
+			</a>
+		</div>
+		</div>
+		
+	</div>
+	<div data-role="panel" id="page2" data-position="right">    
+	      <div id="panelContent"></div>   
+	</div>
 </div>
 
 

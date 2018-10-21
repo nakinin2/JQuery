@@ -1,68 +1,48 @@
 @CHARSET "UTF-8";
 <style type="text/css">
 body{
+	line-height:1.2em;
+	font-size:0.75em;
+	background-color:red;
+}
+
+#page{
 	margin:0;
 	margin-right: auto;
 	margin-left: auto;
-	width:900px;
+	width:100%;
 	min-height:600px;
 	text-align:left;
 	background-color:white;
 }
-div#header{
-	vertical-align:middle;
-	background-color: #e9e9e9;
-	height:100px;
-}
-#header-text a{
-	font-size:40px;	
-	color:BLACK;
-}
-
-#header .right a:hover{
-	color:gray;
-}
 
 #logo{
-	
-	vertical-algin:middle;
-	margin:30px 0 0 20px;
-	color:darkblue;
 	font-size:40px;
 }
 
-.left{
-	float:left;
-	margin-left:20px;
-	
+#header{
+	height:100px;
+}
+
+#header .right a:hover{
+	color:red;
 }
 
 .right{
 	float:right;
-	
-}
-
-img{
-	border:none;
-}
-
-.clear{
-	clear:both;
+	top:0;
 }
 
 a{
 	text-decoration:none;
 }
 
-hr{
-	clear:both;
-}
-
 #nav{
 	margin:0 0 20px 0;
 	float:left;
 	width:100%;
-	background-color:gray;
+	height:100%;
+	background-color:#e9e9e9;
 	font-family:Verdana, Geneva, sans-serif;
 	font-size:14px;
 	font-weight:bold;
@@ -71,12 +51,27 @@ hr{
 
 #nav ul li{
 	float:left;
-	
+	margin:0 5px;
 	list-style:none;
 }
 
-#nav ul{
-	list-style:none;
+#back{
+	width:0;	
+}
+
+#login-btn{
+	height:10px;
+	width:0 ;
+	margin-right:30px;
+}
+
+#regist-btn{
+	height:10px;
+	width:0 ;
+}
+
+.ui-icon-user{
+	
 }
 
 #nav a{
@@ -89,37 +84,38 @@ hr{
 	border-color:transparent;
 }
 
-footer{
-height:70px;
-background-color:#e9e9e9;
+#footer{
+height:80px;
 }
 
-footer #copyright{
-	maring:20px 0 0 10px;
+#footer #copyright{
+	margin:20px 0 0 10px;
 	text-align:center;
 	font-family: consolas;
 	font-weight:bold;
 }
 
-footer #SNS{
+#footer #SNS{
 	margin:10px 20px 0 0;
-	text-align:center;
+	text-align:right;
 }
 
-aside{
+#aside{
 	margin:5px;
 }
 
-article{
+.right{
+	float:right;
 	margin:5px 0 10px 0;
 }
 
-#login{
-	margin:30px;
+#article{
+	margin:5px 0 10px 0;
 }
 
-#login fieldset span{
-	display:inline-block;
-	width:150px;
+.left{
+	float:left;
+	margin-left:10px;
+	margin:5px;
 }
 </style>
