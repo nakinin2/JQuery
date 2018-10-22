@@ -15,7 +15,7 @@ body{
 	text-align:left;
 	background-color:white;
 }
-
+/* 메인 헤드 부분*/
 #logo{
 	font-size:40px;
 }
@@ -24,64 +24,55 @@ body{
 	height:100px;
 }
 
-#header .right a:hover{
-	color:red;
-}
-
-.right{
-	float:right;
-	top:0;
+#log-in{
+	margin-left:30px;
 }
 
 a{
 	text-decoration:none;
 }
 
-#nav{
-	margin:0 0 20px 0;
+#nav-bar{
+	margin:0 0 5px 0;
 	float:left;
 	width:100%;
 	height:100%;
 	background-color:#e9e9e9;
 	font-family:Verdana, Geneva, sans-serif;
-	font-size:14px;
+	font-size:10px;
 	font-weight:bold;
-	color:#ff0099;
 }
 
-#nav ul li{
+#nav-bar ul li{
 	float:left;
-	margin:0 5px;
+	margin:0 2px;
+	width:80px;
 	list-style:none;
 }
 
-#back{
-	width:0;	
+#nav-bar a{
+	display:block;
+	padding:2px;
+	height:15px;
+	text-decoration:none;
+	color:#ff00000;
+	border-style:hidden hidden solid hidden;
+	border-color:transparent;
 }
 
 #login-btn{
 	height:10px;
 	width:0 ;
-	margin-right:30px;
+}
+
+#bar-btn{
+	height:10px;
+	width:0 ;
 }
 
 #regist-btn{
 	height:10px;
 	width:0 ;
-}
-
-.ui-icon-user{
-	
-}
-
-#nav a{
-	display:block;
-	padding:5px;
-	height:20px;
-	text-decoration:none;
-	color:#000000;
-	border-style:hidden hidden solid hidden;
-	border-color:transparent;
 }
 
 #footer{
@@ -104,18 +95,15 @@ height:80px;
 	margin:5px;
 }
 
-.right{
-	float:right;
-	margin:5px 0 10px 0;
-}
-
 #article{
 	margin:5px 0 10px 0;
 }
 
-.left{
-	float:left;
-	margin-left:10px;
-	margin:5px;
+.right{
+	float:right;
+	margin-right:30px;
+	margin-bottom:1em;
+	padding:3px;
+	color:darkblue;
 }
 </style>

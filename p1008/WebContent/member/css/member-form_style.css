@@ -19,5 +19,7 @@ input{
 	color:blue;
 	font-size: x-small;
 }
-
+.ui-mini.ui-btn-icon-left:after, .ui-mini .ui-btn-icon-left:after, .ui-header .ui-btn-icon-left:after, .ui-footer .ui-btn-icon-left:after{
+	left:0.98em;
+}
 </style>

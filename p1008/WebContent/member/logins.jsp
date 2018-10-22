@@ -1,27 +1,72 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>�α��� ��</title>
-<link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-<script src="jquery/jquery.js" type="text/javascript"></script>
-<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
-<script src="jquery/jquery.min.js"></script>
-</head>
-<body>
-		<div class="ui-corner-all" id="page4" data-role="popup" data-theme="a">
-		    <form>
-		        <div style="padding: 10px 20px;">
-		            <h3 align="center">�α���</h3>
-		            <label class="ui-hidden-accessible" for="un">Username:</label>
-		            <input name="user" id="un" type="text" placeholder="username" value="" data-theme="a">
-		            <label class="ui-hidden-accessible" for="pw">Password:</label>
-		            <input name="pass" id="pw" type="password" placeholder="password" value="" data-theme="a">
-		            <button class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check" type="submit">Sign in</button>
-		        </div>
-		    </form>
-    	</div>
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ page import="java.sql.*" %>
+
+<%request.setCharacterEncoding("utf-8"); %>
+
+	<%//입력 정보 추출
+	  String id = request.getParameter("id");
+	  String passwd = request.getParameter("passwd");
+	  String name = "";
+	  //변수 선언
+	  Connection conn = null;
+	  PreparedStatement pstmt = null;
+	  ResultSet rs = null;
+	  String sql = "";
+	  String rst = "success";
+	  String msg = "";
+	  int cnt = 0;
+	  
+	  //데이터베이스 연결 관련 정보를 문자열로 선언
+	  String jdbc_driver = "com.mysql.cj.jdbc.Driver";
+	  String jdbc_url = "jdbc:mysql://localhost/jquery?serverTimezone=UTC&characterEncoding=UTF-8";
+	  
+	  try{
+		  //JDBC 드라이버 로드
+		  Class.forName(jdbc_driver);
+		  
+		  //connection 인스턴스 확보
+		  conn = DriverManager.getConnection(jdbc_url, "testuser", "1234");
+		  
+		  //아이디 중복 검사
+		  sql = "select*from member where id = ?";
+		  pstmt = conn.prepareStatement(sql);
+		  pstmt.setString(1, id);
+		  rs = pstmt.executeQuery();
+		  
+		  //등록된 아이디이면 이름 추출
+		  if(rs.next()){//로그인 정보 설정
+			  String userID = rs.getString("id"); //데이터베이스에 있는 id를 받는다
+			  String userPWD = rs.getString("passwd"); //데이터베이스에 있는 passwd를 받는다
+			  String userName = rs.getString("name"); //데이터베이스에 있는 name를 받는다
+			  	if(passwd.equals(userPWD)) {%>
+			  		<span class="right"><%= rs.getString("name") %>님 환영합니다.</span>
+			  		<%
+			  		session.setAttribute("s_name", userName);
+			  		session.setAttribute("s_Id", userID);	
+			  		response.sendRedirect("main_logout.jsp");//main.jsp에 seesion의 정보를 보낸다.
+			  	}else{//아이디는 맞고 비밀번호는 틀렸을 경우 실행
+			  		%>
+			  		<script type="text/javascript">
+						alert("비밀번호가 틀렸습니다.");
+			  		</script>
+			  		<%}
+			}else { //아이디와 비밀번호가 틀리면 실행%>
+					<script type="text/javascript">
+							alert("아이디와 비밀번호를 입력해 주세요.");			
+			  		</script>
+		
+				<%}
+		  }catch(SQLException e) {
+		  		rst = "시스템 에러";
+		  		msg = e.getMessage();
+		  		}finally{
+		  			rst = "finally 시스템 에러";
+		  			if(rs != null)
+		  				rs.close();
+		  			if(pstmt != null)
+		  				pstmt.close();
+		  			if(conn != null)
+		  				conn.close();
+		  			}
+		  		%>
