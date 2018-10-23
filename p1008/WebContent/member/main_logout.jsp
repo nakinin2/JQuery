@@ -37,7 +37,7 @@
 		<div data-role="navbar" id="nav-bar"  data-grid="d">
 			<ul>
 			 	<li><a href="intro.html" target="display_area">회사소개</a></li>
-			 	<li><a href="product2.html" target="display_area">의류</a></li>
+			 	<li><a href="product.html" target="display_area">의류</a></li>
 			 	<li><a href="customer.jsp" target="display_area">메뉴2</a></li>
 			 	<li><a href="#" target="display_area">메뉴3</a></li>
 			 	<li><a href="#" target="display_area">메뉴4</a></li>
@@ -45,7 +45,7 @@
 		</div><!-- /navbar -->
 		<hr>	<!-- 줄 긋기 -->
 		<article class="left" id="article">
-		     <iframe name="display_area" src="product2.html"></iframe>
+		     <iframe name="display_area" src="product.html"></iframe>
 		</article><!-- /article -->	
 		<hr><!-- 줄 긋기 -->
 	</div><!-- /content -->
