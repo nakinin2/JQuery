@@ -40,7 +40,7 @@
 			  String userPWD = rs.getString("passwd"); //데이터베이스에 있는 passwd를 받는다
 			  String userName = rs.getString("name"); //데이터베이스에 있는 name를 받는다
 			  	if(passwd.equals(userPWD)) {%>
-			  		<span class="right"><%= rs.getString("name") %>님 환영합니다.</span>
+			  		<span class="right"><%= rs.getString("name") %>님 반갑습니다.</span>
 			  		<%
 			  		session.setAttribute("s_name", userName);
 			  		session.setAttribute("s_Id", userID);	

@@ -21,23 +21,24 @@
 <body>
 <div data-role="page" id="page" >
 	<div id="header" data-role="header" data-theme="a" data-position="fixed">
-		<a href="#nav-panel" data-icon="bars" data-iconpos="notext" class="ui-btn-left">Menu</a>
-		<div align="center"><a id="logo" href="main_logout.jsp">Pooh쇼핑몰</a>
+		<div align="center"><a id="logo" href="main_logout.jsp" target="_self">Pooh쇼핑몰</a>
 		</div>
 		<span class="right" >
 			<%String checkName= "";
 		 	 String checkId = "";
 		  	checkName = (String)session.getAttribute("s_name"); %>
-		  	<%=checkName %>님 환영합니다.
+		  	<%=checkName %>님 반갑습니다.
 		</span>
-		<a href = "logout.jsp" data-icon="user" data-iconpos="notext" class="ui-btn-right">로그 아웃</a>
+		<a href = "logout.jsp" style="margin-right:30px;" class="ui-btn-right" data-role="none"><img src="images/logout.png" id="exit-Icon" alt="로그아웃"></a>
+		<a href="#nav-panel2" data-iconpos="notext" class="ui-btn-right" data-role="none"><img src="images/menu-btn.png" id="right-top-menu-Icon" alt="오른쪽 메뉴 목록"></a>
+		
 	</div>
 		
 	<div data-role="content" style="background:#e9e9e9;">
 		<div data-role="navbar" id="nav-bar"  data-grid="d">
 			<ul>
-			 	<li><a href="intro.html" target="display_area">회사소개</a></li>
-			 	<li><a href="product.html" target="display_area">의류</a></li>
+				<li><a href="#nav-panel"><img src="images/menu-btn.png" id="menu-Icon" alt="전체 메뉴 보기"></a></li>
+			 	<li><a href="product.html" target="display_area">상품</a></li>
 			 	<li><a href="customer.jsp" target="display_area">메뉴2</a></li>
 			 	<li><a href="#" target="display_area">메뉴3</a></li>
 			 	<li><a href="#" target="display_area">메뉴4</a></li>
@@ -73,20 +74,28 @@
 		<li><a href="member-form.html" id="regist-btns">회원가입</a></li>
 		<li><a href="#panel-fixed-page2">내정보</a></li>
 		<li><a href="#panel-fixed-page2">장바구니</a></li>
-		<li><a href="#panel-fixed-page2">고객센터</a></li>	
+		<li><a href="list.jsp">고객센터</a></li>	
 	</ul>
 </div><!-- /right-menu-panel -->
 
 <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="nav-panel">
 		<ul data-role="listview">
 		<li data-icon="delete" data-theme="b"><a href="#" data-rel="close" >메뉴 닫기</a></li>&nbsp;
-		<li><a href="#panel-fixed-page2">아이템1</a></li>
+		<li><a href="#panel-fixed-page2">회사 소개</a></li>
 		<li><a href="#panel-fixed-page2">아이템2</a></li>
 		<li><a href="#panel-fixed-page2">아이템3</a></li>
 		<li><a href="#panel-fixed-page2">아이템4</a></li>
 	</ul>
-</div><!-- /panel -->
+</div><!-- /left-menu-panel -->
 
+<div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="nav-panel2" data-position="right" data-swipe-close="false">
+		<ul data-role="listview">
+		<li data-icon="delete" data-theme="b"><a href="#" data-rel="close" >메뉴 닫기</a></li>&nbsp;
+		<li><a href="#panel-fixed-page2">내정보</a></li>
+		<li><a href="#panel-fixed-page2">장바구니</a></li>
+		<li><a href="list.jsp">고객센터</a></li>	
+	</ul>
+</div><!-- /right-menu-panel -->
 </div><!-- /main page -->
 </body>
 </html>

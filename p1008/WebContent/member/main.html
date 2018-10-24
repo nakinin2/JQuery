@@ -19,16 +19,15 @@
 <body>
 <div data-role="page" id="page" >
 	<div id="header" data-role="header" data-theme="a" data-position="fixed" >
-		<a href="#nav-panel" data-icon="bars" data-iconpos="notext" class="ui-btn-left" >왼쪽 메뉴</a>
-		<a href="#add-form" data-icon="user" id="log-in"data-iconpos="notext" class="ui-btn-left">로그인</a>
-		<div align="center"><a id="logo" href="main.html" >Pooh쇼핑몰</a></div>
-		 <a href="#nav-panel2" data-icon="grid" data-iconpos="notext" class="ui-btn-right">오른쪽 메뉴</a>	
+		<a href="#add-form" id="log-in" class="ui-btn-left" data-iconpos="notext" data-role="none"><img src="images/login.png" id="login-Icon" alt="로그인"></a>
+		<div align="center"><a id="logo" href="main.html" data-iconpos="notext" target="_self">Pooh쇼핑몰</a></div>
+		 <a href="#nav-panel2" data-iconpos="notext" class="ui-btn-right" data-role="none"><img src="images/menu-btn.png" id="right-top-menu-Icon" alt="오른쪽 메뉴 목록"></a>
 	</div><!-- /header -->
 	
 	<div data-role="content" style="background:#e9e9e9;">
-		<div data-role="navbar" id="nav-bar"  data-grid="d">
+		<div data-role="navbar" id="nav-bar"  data-grid="d" >
 			<ul>
-			 	<li><a href="intro.html" target="display_area">회사소개</a></li>
+				<li><a href="#nav-panel"><img src="images/menu-btn.png" id="menu-Icon" alt="전체 메뉴 보기"></a></li>
 			 	<li><a href="product.html" target="display_area">상품</a></li>
 			 	<li><a href="customer.jsp" target="display_area">메뉴1</a></li>
 			 	<li><a href="#" target="display_area">메뉴2</a></li>
@@ -43,7 +42,6 @@
 		</article><!-- /article -->
 		
 		<hr><!-- 줄 긋기 -->
-		
 	</div><!-- /content -->
 	
 	<div id="footer" data-role="footer" data-position="fixed" data-theme="a">
@@ -66,7 +64,7 @@
 <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="nav-panel" data-swipe-close="false">
 		<ul data-role="listview">
 		<li data-icon="delete" data-theme="b"><a href="#" data-rel="close" >메뉴 닫기</a></li>&nbsp;
-		<li><a href="#panel-fixed-page2">아이템1</a></li>
+		<li><a href="#panel-fixed-page2">회사 소개</a></li>
 		<li><a href="#panel-fixed-page2">아이템2</a></li>
 		<li><a href="#panel-fixed-page2">아이템3</a></li>
 		<li><a href="#panel-fixed-page2">아이템4</a></li>
@@ -79,7 +77,7 @@
 		<li><a href="member-form.html"  id="regist-btns" >회원가입</a></li>
 		<li><a href="#panel-fixed-page2">내정보</a></li>
 		<li><a href="#panel-fixed-page2">장바구니</a></li>
-		<li><a href="#panel-fixed-page2">고객센터</a></li>	
+		<li><a href="list.jsp">고객센터</a></li>	
 	</ul>
 </div><!-- /right-menu-panel -->
 

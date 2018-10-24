@@ -47,12 +47,12 @@ a#show_cart{
     cursor: pointer;
 	display:block;
     display: inline-block;
-    font: 9px/21px "Helvetica Neue",Helvetica,"Nimbus Sans L",Arial,sans-serif;
+    font: 12px/21px "Helvetica Neue",Helvetica,"Nimbus Sans L",Arial,sans-serif;
     letter-spacing: 2px;
     color:#525049;
 	padding:8px;
 	text-decoration:none;
-	
+	font-weight:bold;
     text-transform: uppercase;
 }
 .add-to-cart-button{
