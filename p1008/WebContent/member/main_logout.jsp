@@ -17,11 +17,12 @@
 <link rel="stylesheet" href="css/demo.css?v=2">
 <script type="text/javascript" src="jquery/modernizr.js"></script>
 <script type="text/javascript" src="jquery/demo.js"></script>
+
 </head>
 <body>
 <div data-role="page" id="page" >
 	<div id="header" data-role="header" data-theme="a" data-position="fixed">
-		<div align="center"><a id="logo" href="main_logout.jsp" target="_self">Pooh쇼핑몰</a>
+		<div align="center"><a id="logo" href="#" target="_self">Pooh쇼핑몰</a>
 		</div>
 		<span class="right" >
 			<%String checkName= "";
@@ -71,7 +72,6 @@
 <div data-role="panel" data-position-fixed="true" data-display="overlay" data-theme="a" id="nav-panel2" data-position="right">
 	<ul data-role="listview">
 		<li data-icon="delete" data-theme="b"><a href="#" data-rel="close" >메뉴 닫기</a></li>&nbsp;
-		<li><a href="member-form.html" id="regist-btns">회원가입</a></li>
 		<li><a href="#panel-fixed-page2">내정보</a></li>
 		<li><a href="#panel-fixed-page2">장바구니</a></li>
 		<li><a href="list.jsp">고객센터</a></li>	
@@ -88,14 +88,6 @@
 	</ul>
 </div><!-- /left-menu-panel -->
 
-<div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="nav-panel2" data-position="right" data-swipe-close="false">
-		<ul data-role="listview">
-		<li data-icon="delete" data-theme="b"><a href="#" data-rel="close" >메뉴 닫기</a></li>&nbsp;
-		<li><a href="#panel-fixed-page2">내정보</a></li>
-		<li><a href="#panel-fixed-page2">장바구니</a></li>
-		<li><a href="list.jsp">고객센터</a></li>	
-	</ul>
-</div><!-- /right-menu-panel -->
 </div><!-- /main page -->
 </body>
 </html>

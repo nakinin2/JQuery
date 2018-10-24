@@ -44,7 +44,8 @@
 			  		<%
 			  		session.setAttribute("s_name", userName);
 			  		session.setAttribute("s_Id", userID);	
-			  		response.sendRedirect("main_logout.jsp");//main.jsp에 seesion의 정보를 보낸다.
+			  		response.sendRedirect("main_logout.jsp");//main.jsp에 seesion 정보를 보낸다.
+
 			  	}else{//아이디는 맞고 비밀번호는 틀렸을 경우 실행
 			  		%>
 			  		<script type="text/javascript">
@@ -56,17 +57,20 @@
 							alert("아이디와 비밀번호를 입력해 주세요.");			
 			  		</script>
 		
-				<%}
+		<%}
 		  }catch(SQLException e) {
 		  		rst = "시스템 에러";
 		  		msg = e.getMessage();
-		  		}finally{
-		  			rst = "finally 시스템 에러";
-		  			if(rs != null)
-		  				rs.close();
-		  			if(pstmt != null)
-		  				pstmt.close();
-		  			if(conn != null)
-		  				conn.close();
-		  			}
+		  }finally{
+		  		rst = "finally 시스템 에러";
+		  		if(rs != null){
+		  			rs.close();
+		  		}
+		  		if(pstmt != null){
+		  			pstmt.close();
+		  		}
+		  		if(conn != null){
+		  			conn.close();
+		  		}
+		  }
 		  		%>

@@ -5,10 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시판</title>
-<link href="jquery/jquery.mobile-1.4.5.min.css?ver=1.1" rel="stylesheet" type="text/css"/>
 <script src="jquery/jquery.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.min.js"></script>
+<link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+
 </head>
 <body>
 <% //데이터 베이스 연결 관련 정보를 변수 선언
@@ -117,7 +118,7 @@
 		</tr>
 		<tr align= "center">
 			<td><input type="button" value= "글쓰기" OnClick = "window.location='write.jsp'"></td>
-			<td><a href="main.html" >가자</a></td>
+			<td><a href="#" onclick="javascript:history.back();">가자</a></td>
 		</tr>
 	</table>
 	</div>

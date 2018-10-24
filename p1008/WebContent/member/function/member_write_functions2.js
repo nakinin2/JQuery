@@ -3,6 +3,7 @@ function id_chk(){
 	open("id_check.jsp?id="+document.writeform.id.value,target="_self"); //중복체크를 확인을 위해 사용하는 명령어
 }
 */
+jQuery.noConflict();
 
 $(function(){
 	$("body").click(function(){
