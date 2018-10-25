@@ -1,22 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>쇼핑몰</title>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+<!--내가 만든 CSS 파일 경로 -->
+<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
+<!-- --------------------------- -->
 <script src="jquery/jquery.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.min.js"></script>
-
-<!-- 함수와 CSS 파일 경로 -->
-<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/member-form_style.css" rel="stylesheet" type="text/css"/>
-<script src="function/member_write_functions.js"  type="text/javascript"></script>
-<link rel="stylesheet" href="css/demo.css?v=2">
-<script type="text/javascript" src="jquery/modernizr.js"></script>
-<script type="text/javascript" src="jquery/demo.js"></script>
+<!--내가 만든 JS 파일 경로 -->
+<script type="text/javascript">
+$(document).on("ready",function(){
+	$(".right").fadeOut(2000);
+});
+</script>
 
 </head>
 <body>
@@ -47,7 +48,7 @@
 		</div><!-- /navbar -->
 		<hr>	<!-- 줄 긋기 -->
 		<article class="left" id="article">
-		     <iframe name="display_area" src="product.html"></iframe>
+		     <div align="center"><iframe name="display_area" src="product.html" ></iframe></div>
 		</article><!-- /article -->	
 		<hr><!-- 줄 긋기 -->
 	</div><!-- /content -->

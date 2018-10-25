@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+body{
+	line-height:1.2em;
+	font-size:0.75em;
+	background-color:#e9e9e9;
+}
+#list-page{
+	background-color:#e9e9e9;
+}
+
+#main-home-Icon{	/*헤드에서 메인으로 가는 메뉴 버튼의 이미지 크기 조절*/
+	width:30px;
+	height:20px;
+	margin-top:7px;
+	margin-left:7px;
+}
+
+#list-header-text{
+	font-size:25px;
+}
+
+#list-header{
+	height:55px;
+}
+
+a{
+	text-decoration:none;
+}
+
+#list-footer{
+height:80px;
+}
+
+#list-footer #list-copyright{
+	margin:20px 0 0 10px;
+	text-align:center;
+	font-family: consolas;
+	font-weight: bold;
+}
+
+#list-footer #list-SNS{
+	margin:10px 20px 0 0;
+	text-align:right;
+}

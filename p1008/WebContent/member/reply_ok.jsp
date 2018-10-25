@@ -38,7 +38,7 @@
 				step = rs.getInt(4);
 			}
 		}
-		sql = "update board set step = step+1 where ref =" + ref + " and step>" + step; 
+		sql = "update list set step = step+1 where ref =" + ref + " and step>" + step; 
 		stmt.executeUpdate(sql);
 		
 		sql = "insert into list(name, password, title, memo, ref, indent, step, time)" + "values(?,?,?,?,?,?,?,sysdate())";
@@ -64,14 +64,3 @@
 	self.window.alert("입력한 글을 저장하였습니다.");
 	location.href = "list.jsp";
 </script>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>

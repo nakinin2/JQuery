@@ -4,12 +4,6 @@ function id_chk(){
 }
 */
 
-jQuery.noConflict();
-
-$(document).on("ready",function(){
-	$(".right").fadeOut(2000);
-});
-
 $(function(){
 	$("body").click(function(){
 		$("#nameHelper").off("click").text("");

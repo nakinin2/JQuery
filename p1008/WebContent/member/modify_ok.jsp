@@ -19,7 +19,7 @@
 	String passw = request.getParameter("password"); //DB에서 받아오는 것
 	
 	String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-	String jdbcUrl = "jdbc:mysql://localhost/yangjung?serverTimezone=UTC&characterEncoding=UTF-8";
+	String jdbcUrl = "jdbc:mysql://localhost/jquery?serverTimezone=UTC&characterEncoding=UTF-8";
 	
 	try{
 		Class.forName(jdbcDriver);
@@ -28,14 +28,14 @@
 		Statement stmt = conn.createStatement();   // createStatement()는 한번 쿼리문을 사용하거나, 인수값의 변동이 없을경우 사용된다
 
 		
-		sql = "SELECT PASSWORD FROM board WHERE NUM=" + idx;
+		sql = "SELECT PASSWORD FROM list WHERE NUM=" + idx;
 		rs = stmt.executeQuery(sql);
 		
 		if(rs.next()) {
 			passwd = rs.getString(1);  //passwd(내가 입력한 값)과 rs.getStrint(받아 온 데이터 베이스 값)과 같다
 		}
 		if(passwd.equals(passw)) {  //passwd=내가 입력한 값, passw=데이터 베이스의 값
-			sql = "UPDATE board SET TITLE=  '  "  +  title  +  "  ' , MEMO=  '  " + memo + "  '  WHERE NUM=  " + idx ;
+			sql = "UPDATE list SET TITLE=  '  "  +  title  +  "  ' , MEMO=  '  " + memo + "  '  WHERE NUM=  " + idx ;
 			//update board set title= '      ' , memo= '      ' where num= '     '
 			stmt.executeUpdate(sql);
 	%>

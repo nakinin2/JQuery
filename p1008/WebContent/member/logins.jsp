@@ -19,7 +19,7 @@
 	  
 	  //데이터베이스 연결 관련 정보를 문자열로 선언
 	  String jdbc_driver = "com.mysql.cj.jdbc.Driver";
-	  String jdbc_url = "jdbc:mysql://localhost/jquery?serverTimezone=UTC&characterEncoding=UTF-8";
+	  String jdbc_url = "jdbc:mysql://localhost/jquery?serverTimezone=UTC";
 	  
 	  try{
 		  //JDBC 드라이버 로드
@@ -39,38 +39,47 @@
 			  String userID = rs.getString("id"); //데이터베이스에 있는 id를 받는다
 			  String userPWD = rs.getString("passwd"); //데이터베이스에 있는 passwd를 받는다
 			  String userName = rs.getString("name"); //데이터베이스에 있는 name를 받는다
+			  
 			  	if(passwd.equals(userPWD)) {%>
-			  		<span class="right"><%= rs.getString("name") %>님 반갑습니다.</span>
-			  		<%
+			  		<%= rs.getString("name") %>님 환영합니다.<%
 			  		session.setAttribute("s_name", userName);
-			  		session.setAttribute("s_Id", userID);	
-			  		response.sendRedirect("main_logout.jsp");//main.jsp에 seesion 정보를 보낸다.
-
-			  	}else{//아이디는 맞고 비밀번호는 틀렸을 경우 실행
+			  		session.setAttribute("s_Id", userID);
+			  		
+			  		response.sendRedirect("main_logout.jsp");//main.jsp에 seesion의 정보를 보낸다.
+			  	}else{
 			  		%>
-			  		<script type="text/javascript">
-						alert("비밀번호가 틀렸습니다.");
-			  		</script>
-			  		<%}
-			}else { //아이디와 비밀번호가 틀리면 실행%>
-					<script type="text/javascript">
-							alert("아이디와 비밀번호를 입력해 주세요.");			
-			  		</script>
-		
-		<%}
+						<script>
+			  			self.window.alert("패스워드가 맞지 않습니다.<br>패스워드를 다시 입력하세요.");
+			  			<a href= "javascript:history.back()">뒤로</a>
+			  			</script>
+			  			<%
+			  			}
+			}else { %>
+				<script>
+				alert("아이디와 비밀번호를 입력해 주세요.");
+				<a href = "javascript:history.back()">뒤로</a>
+				</script>
+				<% }
 		  }catch(SQLException e) {
 		  		rst = "시스템 에러";
 		  		msg = e.getMessage();
-		  }finally{
-		  		rst = "finally 시스템 에러";
-		  		if(rs != null){
-		  			rs.close();
-		  		}
-		  		if(pstmt != null){
-		  			pstmt.close();
-		  		}
-		  		if(conn != null){
-		  			conn.close();
-		  		}
-		  }
+		  		}finally{
+		  			rst = "finally 시스템 에러";
+		  			if(rs != null)
+		  				rs.close();
+		  			if(pstmt != null)
+		  				pstmt.close();
+		  			if(conn != null)
+		  				conn.close();
+		  			}
 		  		%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import = "java.sql.*"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시판</title>
+<link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/list-style.css" rel="stylesheet" type="text/css"></link>
+
 <script src="jquery/jquery.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
-<script src="jquery/jquery.min.js"></script>
-<link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-
+<script src="jquery/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
 <% //데이터 베이스 연결 관련 정보를 변수 선언
@@ -42,90 +43,92 @@
 		rs = stmt.executeQuery(sql);
 		
 		%>
-		<div data-role="page" id="view-page" >
-		<div id="view-header" data-role="header" data-theme="a" data-position="fixed" ></div>
-		<div data-role="content" style="background:#e9e9e9;">
-		<table width = "100%" cellpadding = "0" cellspacing = "0" border = "0">
-			<tr height= "5">
-				<td width= "5"></td>
-			</tr>
-			<tr style="background:url('images/table_mid.gif') repeat-x; text-align:center;">
-				<td width= "5"><img src = "images/table_left.gif" width= "5" height= "30"></td>
-				<td width="73">번호</td>
-				<td width="379">제목</td>
-				<td width="73">작성자</td>
-				<td width="164">작성일</td>
-				<td width="58">조회수</td>
-				<td width="7"><img src = "images/table_right.gif" width= "5" height= "30"></td>
-			</tr>
-			<%
-			if(total == 0){
-			%>
-			<tr align= "center" bgcolor = "#FFFFFF" height= "30">
-				<td colspan= "6">등록된 글이 없습니다.</td>
-			</tr>
-			<%
-			}else{
-					
-				while(rs.next()){
-					int idx = rs.getInt(1);
-					String name = rs.getString(2);
-					String title = rs.getString(3);
-					String time = rs.getString(4);
-					int hit = rs.getInt(5); //게시판을 읽은 건수를 세는 것
-					int indent = rs.getInt(6); //댓글 달 때 사용한다.
-			%>
-			<tr height= "25" align= "center">
-				<td>&nbsp;</td>
-				<td><%=idx %></td>
-				<td align= "left">
-			<%
-			for(int j=0; j<indent; j++){ //답글 들여쓰기 설정을 위한 것
-			%>			   &nbsp;&nbsp;&nbsp;<%
-			}if(indent != 0){
-			%>
-			<img src = "images/reply_icon.gif">
-			<%
-			}
-			%>
-			<a href = "view.jsp?idx=<%=idx %>"><%=title %></a></td>
-			<td align= "center"><%=name %></td>
-			<td align= "center"><%=time %></td>
-			<td align= "center"><%=hit %></td>
-			<td>&nbsp;</td>
-			</tr>
-			<tr height= "1" bgcolor="#D2D2D2">
-				<td colspan= "6"></td>
-			</tr>
-			<%
-					}
+		<div data-role="page" id="list-page" >
+		<div data-role="header" id="list-header"  data-position="fixed" >
+			<a href="main.html" data-role="none" data-iconpos="notext" class="ui-btn-left"><img src="images/home-button.png" id="main-home-Icon" alt="메인으로"></a>
+			<h1 align="center" id="list-header-text">고객 센터</h1>
+		</div><!-- list-header-page -->
+		<div data-role="content" >
+			<table width = "100%" cellpadding = "0" cellspacing = "0" border = "0">
+				<tr height= "5">
+					<td width= "5"></td>
+				</tr>
+				<tr style="background:url('images/table_mid.gif') repeat-x; text-align:center;">
+					<td width= "5"><img src = "images/table_left.gif" width= "5" height= "30"></td>
+					<td width="73">번호</td>
+					<td width="379">제목</td>
+					<td width="73">작성자</td>
+					<td width="164">작성일</td>
+					<td width="58">조회수</td>
+					<td width="7"><img src = "images/table_right.gif" width= "5" height= "30"></td>
+				</tr>
+				<%
+				if(total == 0){
+				%>
+				<tr align= "center" bgcolor = "#FFFFFF" height= "30">
+					<td colspan= "6">등록된 글이 없습니다.</td>
+				</tr>
+				<%
+				}else{
+						
+					while(rs.next()){
+						int idx = rs.getInt(1);
+						String name = rs.getString(2);
+						String title = rs.getString(3);
+						String time = rs.getString(4);
+						int hit = rs.getInt(5); //게시판을 읽은 건수를 세는 것
+						int indent = rs.getInt(6); //댓글 달 때 사용한다.
+				%>
+				<tr height= "40" align= "center" style="font-size:17px;">
+					<td>&nbsp;</td>
+					<td><%=idx %></td>
+					<td align= "left">
+				<%
+				for(int j=0; j<indent; j++){ //답글 들여쓰기 설정을 위한 것
+				%>			   &nbsp;&nbsp;&nbsp;<%
+				}if(indent != 0){
+				%>
+				<img src = "images/reply_icon.gif">
+				<%
 				}
-			rs.close();
-			stmt.close();
-			conn.close();
-			
-	}catch(SQLException e){
-		out.println(e.toString());
-	}
-	%>
-	<tr height= "1" bgcolor=  "#82B5DF">
-		<td colspan= "6" width= "752"></td>
-	</tr>
-	</table>
-	<table width= "100%" cellpadding= "0" cellspacing= "0" border= "0">
-		<tr>
-			<td colspan= "4" height= "5"></td>
+				%>
+				<a href = "view.jsp?idx=<%=idx %>" style="color:black;"><%=title %></a></td>
+				<td align= "center"><%=name %></td>
+				<td align= "center"><%=time %></td>
+				<td align= "center"><%=hit %></td>
+				<td>&nbsp;</td>
+				</tr>
+				<tr height= "1" bgcolor="#D2D2D2">
+					<td colspan= "6"></td>
+				</tr>
+				<%
+						}
+					}
+				rs.close();
+				stmt.close();
+				conn.close();
+				
+		}catch(SQLException e){
+			out.println(e.toString());
+		}
+		%>
+		<tr height= "1" bgcolor=  "#82B5DF">
+			<td colspan= "6" width= "752"></td>
 		</tr>
-		<tr align= "center">
-			<td><input type="button" value= "글쓰기" OnClick = "window.location='write.jsp'"></td>
-			<td><a href="#" onclick="javascript:history.back();">가자</a></td>
-		</tr>
-	</table>
-	</div>
-	<div id="footer" data-role="footer" data-position="fixed" data-theme="a">
-		<div id="copyright" >
+		</table>
+		<table width= "100%" cellpadding= "0" cellspacing= "0" border= "0">
+			<tr>
+				<td colspan= "4" height= "5"></td>
+			</tr>
+			<tr align= "right" style="font-size:20px;">
+				<td><a href ="write.jsp" style="color:black; margin-right:10px;">글쓰기</a></td>
+			</tr>
+		</table><!-- end table -->
+	</div><!-- list-content-page -->
+	<div data-role="footer" id="list-footer" data-position="fixed">
+		<div id="list-copyright" >
 			Copyright (c) 2018 yangjeong All rights reserved
-		<div id="SNS">
+		<div id="list-SNS">
 			<a href="http://facebook.com" target="_blank">
 				<img src="images/facebook.gif" height="32" alt="Facebook">
 			</a>
@@ -137,7 +140,7 @@
 			</a>
 		</div>
 		</div>	
-	</div><!-- /footer -->
+	</div><!-- list-footer-page -->
 	</div>
 </body>
 </html>

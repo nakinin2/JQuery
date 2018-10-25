@@ -48,7 +48,6 @@
 <script src="jquery/jquery.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.min.js"></script>
-<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
 <style>
 body{
 	line-height:1.2em;
@@ -56,28 +55,64 @@ body{
 	background-color:#e9e9e9;
 }
 
-.view-btns{
-	float:left;
-	font-size:10px;
+#view-header{
+	height:55px;
 }
 
+#back-Icon{	/*헤드에서 뒤로 가기 메뉴 버튼의 이미지 크기 조절*/
+	width:30px;
+	height:30px;
+	margin-top:7px;
+	margin-left:7px;
+}
 
-#ttr{
+#view-page{
+	background-color:#e9e9e9;
+}
+
+a{
+	text-decoration:none;
+}
+
+.view-btns{
+	margin-left:20px;
+	float:left;
+	font-size:15px;
+}
+
+#img-td{
 background-repeat:repeat-x;
+}
+
+#view-footer{
+height:80px;
+}
+
+#view-footer #view-copyright{
+	margin:20px 0 0 10px;
+	text-align:center;
+	font-family: consolas;
+	font-weight: bold;
+}
+
+#view-footer #view-SNS{
+	margin:10px 20px 0 0;
+	text-align:right;
 }
 </style>
 </head>
 <body>
-<div data-role="page" id="view-page" data-ajax="false">
+<div data-role="page" id="view-page">
 <div data-role="header" id="view-header" data-position="fixed">
-		<h1 align="center">고객 센터</h1>
+		<a href="list.jsp"  id="btn-a" class="ui-btn-left" data-iconpos="notext" data-role="none"><img src="images/back-btn.png" id="back-Icon" alt="뒤로 가기"></a>
+		<h1 align="center" style="font-size:25px;">고객 센터</h1>
 </div><!-- view-page-header -->
-	<div data-role="content" data-ajax="false">
-		<table border="1" height="100vh">
+	<div data-role="content" >
+		<table border="0" height="100vh" align="center">
 			<tr>
 				<td>
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
-						<tr id="ttr" style="background:url('images/table_mid.gif');  text-align:center;">
+						<tr id="img-td" style="background:url('images/table_mid.gif');  text-align:center;">
 							<td><img src = "images/table_left.gif" width="100%" height="30"></td>
 							<td>내용</td>
 							<td><img src = "images/table_right.gif"  width="100%" height="30"></td>
@@ -157,13 +192,12 @@ background-repeat:repeat-x;
 						</tr>
 						<tr>
 							<td width="0%">&nbsp;</td>
-							<td colspan="2" width="100%" id="btn-td">
-								<div class="view-btns" style="width:90px; " data-inline="true" ><a href="write.jsp" data-inline="true">글쓰기</a></div>
-								<div class="view-btns" style="width:90px; " data-inline="true"><a href="reply.jsp?idx=<%=idx %>" data-inline="true">답글</a></div>
-								<div class="view-btns" style="width:90px; " data-inline="true"><a href="list.jsp" data-inline="true">목록</a></div>
-								<div class="view-btns" style="width:90px; " data-inline="true"><a href="modify.jsp?idx=<%=idx%>" data-inline="true">수정</a></div>
-								<div class="view-btns" style="width:90px; " data-inline="true"><a href="delete.jsp?idx=<%=idx%>" data-inline="true">삭제</a></div>
-								<div class="view-btns" style="width:90px; " data-inline="true"><a href="main.html" target="_self">뒤로</a></div>
+							<td colspan="2" width="100%">
+								<div class="view-btns" style="width:90px; "><a href="write.jsp" >글쓰기</a></div>
+								<div class="view-btns" style="width:90px; " ><a href="reply.jsp?idx=<%=idx %>" >답글</a></div>
+								<div class="view-btns" style="width:90px; " ><a href="list.jsp" >목록</a></div>
+								<div class="view-btns" style="width:90px; " ><a href="modify.jsp?idx=<%=idx%>" >수정</a></div>
+								<div class="view-btns" style="width:90px; " ><a href="delete.jsp?idx=<%=idx%>" >삭제</a></div>			
 							</td>
 							<td width="0%">&nbsp;</td>
 						</tr>
@@ -172,10 +206,10 @@ background-repeat:repeat-x;
 			</tr>
 		</table>
 	</div><!-- view-page-content -->
-	<div data-role="footer" id="footer" data-position="fixed">
-		<div id="copyright" >
+	<div data-role="footer" id="view-footer" data-position="fixed">
+		<div id="view-copyright" >
 			Copyright (c) 2018 yangjeong All rights reserved
-		<div id="SNS">
+		<div id="view-SNS">
 			<a href="http://facebook.com" target="_blank">
 				<img src="images/facebook.gif" height="32" alt="Facebook">
 			</a>

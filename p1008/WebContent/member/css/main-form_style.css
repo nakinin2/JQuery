@@ -1,5 +1,4 @@
 @CHARSET "UTF-8";
-<style type="text/css">
 body{
 	line-height:1.2em;
 	font-size:0.75em;
@@ -82,6 +81,7 @@ a{
 	background-color:#FFB2D9;
 	color:darkblue;
 }
+
 #login-btn{
 	height:10px;
 	width:0 ;
@@ -114,7 +114,7 @@ height:80px;
 }
 iframe{
 	height:100vh;	/*vh:view-port-height로 사용자가 보는 화면에 따라 조절*/
-	width:100vw;	/*vw:view-port-width로 사용자가 보는 화면에 따라 조절*/
+	width:1000px;	/*vw:view-port-width로 사용자가 보는 화면에 따라 조절*/
 	border:none;
 	background-color:white;
 }
@@ -127,26 +127,9 @@ iframe{
 	mat-height:auto;
 }
 
-
 .right{
 	float:right;
 	margin-bottom:1em;
 	padding:3px;
 	margin-top:30px;
 }
-
-#topBtn {
-  position: absolute;
-  right: 2%;
-  bottom: 2%;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  display: block;
-  background: #000;
-  color: #fff;
-  font-size: 10px;
-  text-align: center;
-  border-radius: 5px;
-}
-</style>

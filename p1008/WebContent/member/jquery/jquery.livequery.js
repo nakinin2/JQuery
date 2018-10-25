@@ -6,7 +6,6 @@
  * Requires jQuery 1.1.3+
  * Docs: http://docs.jquery.com/Plugins/livequery
  */
-jQuery.noConflict();
 
 (function($) {
 	

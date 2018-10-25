@@ -15,7 +15,7 @@
  	String passwd = request.getParameter("password");
  	
  	String jdbcDriver = "com.mysql.cj.jdbc.Driver";
- 	String jdbcUrl = "jdbc:mysql://localhost/yangjung?serverTimezone=UTC&characterEncoding=UTF-8";
+ 	String jdbcUrl = "jdbc:mysql://localhost/jquery?serverTimezone=UTC&characterEncoding=UTF-8";
  	
  	try {
  		Class.forName(jdbcDriver);
@@ -23,13 +23,13 @@
  		
  		Statement stmt = conn.createStatement();
  		
- 		sql = "select password from board where num=" + idx;
+ 		sql = "select password from list where num=" + idx;
  		rs = stmt.executeQuery(sql);
  		
  		if(rs.next()) {
  			password = rs.getString("password");
  			if(passwd.equals(password)) {
- 				sql = "delete from board where num =" + idx;
+ 				sql = "delete from list where num =" + idx;
  				stmt.executeUpdate(sql);
  				 %>
  				 	<script language = javascript>
