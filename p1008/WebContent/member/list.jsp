@@ -3,14 +3,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>게시판</title>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-<link href="css/list-style.css" rel="stylesheet" type="text/css"></link>
+<link href="css/list-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/write-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/reply-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/view-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/delete-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/modify-style.css" rel="stylesheet" type="text/css"/>
 
 <script src="jquery/jquery.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.min.js" type="text/javascript"></script>
+<script src="function/reply-function.js" type="text/javascript"></script>
+<script src="function/write-function.js" type="text/javascript"></script>
+<script src="function/reply-function.js" type="text/javascript"></script>
+<script src="function/delete-function.js" type="text/javascript"></script>
+
 </head>
 <body>
 <% //데이터 베이스 연결 관련 정보를 변수 선언
@@ -38,7 +49,6 @@
 			total = rs.getInt(1);
 		}
 		rs.close();
-		out.print("총 게시물: " + total + "개");
 		String sql = "SELECT NUM, NAME, TITLE, TIME, HIT, indent from list order by ref DESC"; //order by는 정렬하겠다는 말
 		rs = stmt.executeQuery(sql);
 		
@@ -49,18 +59,19 @@
 			<h1 align="center" id="list-header-text">고객 센터</h1>
 		</div><!-- list-header-page -->
 		<div data-role="content" >
+		<td width= "5"><strong>총 게시물 : <%=total %>개</strong></td>
 			<table width = "100%" cellpadding = "0" cellspacing = "0" border = "0">
 				<tr height= "5">
 					<td width= "5"></td>
 				</tr>
 				<tr style="background:url('images/table_mid.gif') repeat-x; text-align:center;">
-					<td width= "5"><img src = "images/table_left.gif" width= "5" height= "30"></td>
+					<td width= "5"><img src = "images/table_left.gif" height= "30"></td>
 					<td width="73">번호</td>
 					<td width="379">제목</td>
 					<td width="73">작성자</td>
 					<td width="164">작성일</td>
 					<td width="58">조회수</td>
-					<td width="7"><img src = "images/table_right.gif" width= "5" height= "30"></td>
+					<td width="7"><img src = "images/table_right.gif" height= "30"></td>
 				</tr>
 				<%
 				if(total == 0){

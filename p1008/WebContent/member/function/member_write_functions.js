@@ -350,7 +350,6 @@ $(function() {
 					return false;
 				}else {
 					$("#idHelper").html(data);
-
 					return false;
 				}//end else
 			},//end success
@@ -362,7 +361,6 @@ $(function() {
 		return false;
 	});//end click
 });
-
 /*
 isAjaxing = true;
 setTimeout(function(){ //ajax 중괄호 안에 넣기

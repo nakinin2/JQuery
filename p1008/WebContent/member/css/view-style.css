@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+body{
+	line-height:1.2em;
+	font-size:0.75em;
+	background-color:#e9e9e9;
+}
+
+#view-header{
+	height:55px;
+}
+
+#back-Icon{	/*헤드에서 뒤로 가기 메뉴 버튼의 이미지 크기 조절*/
+	width:30px;
+	height:30px;
+	margin-top:7px;
+	margin-left:7px;
+}
+
+#view-page{
+	background-color:#e9e9e9;
+}
+
+a{
+	text-decoration:none;
+}
+
+.view-btns{
+	margin-left:20px;
+	float:left;
+	font-size:15px;
+}
+
+#img-td{
+background-repeat:repeat-x;
+}
+
+#view-div{
+	display:flex;
+	justify-content:center;
+}
+
+#view-btns{
+	width:90px;
+}
+
+#view-footer{
+height:80px;
+}
+
+#view-footer #view-copyright{
+	margin:20px 0 0 10px;
+	text-align:center;
+	font-family: consolas;
+	font-weight: bold;
+}
+
+#view-footer #view-SNS{
+	margin:10px 20px 0 0;
+	text-align:right;
+}

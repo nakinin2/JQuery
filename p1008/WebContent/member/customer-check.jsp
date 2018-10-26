@@ -5,8 +5,17 @@
 <%request.setCharacterEncoding("utf-8"); %>
 
 	<%//입력 정보 추출
-	  String id = request.getParameter("id");
-	  String passwd = request.getParameter("passwd");
+	checkPasswd = (String)session.getAttribute("s_passwd");
+	if(checkName == null) {
+		%>
+		<script>
+			self.window.alert("먼저 로그인 하세요.");
+
+		</script>
+		<%
+    }%>
+	  String id = request.getParameter("custom-id");
+	  String passwd = request.getParameter("custom-passwd");
 	  String name = "";
 	  //변수 선언
 	  Connection conn = null;
@@ -45,7 +54,7 @@
 			  		session.setAttribute("s_name", userName);
 			  		session.setAttribute("s_Id", userID);
 			  		
-			  		response.sendRedirect("main_logout.jsp");//main.jsp에 seesion의 정보를 보낸다.
+			  		response.sendRedirect("customer.jsp");//main.jsp에 seesion의 정보를 보낸다.
 			  	}else{
 			  		%>
 						<script>

@@ -3,6 +3,8 @@ html, body{
 	padding:0;
 	border:0;
 	outline:0;
+	background-color:#e9e9e9;
+
 }
 
 #wrap{ width:100%; min-height:900px; top:0px; position:relative; bottom:0px; }
@@ -10,8 +12,8 @@ html, body{
 
 #wrap .detail-view {
    /* background: none repeat scroll 0 0 #F3F4EE;*/
-    border: 1px solid #E2E2E2;
-    border-top: 1px solid #E2E2E2;
+    border: 1px solid #D1B2FF;
+    border-top: 1px solid #D1B2FF;
     left: 0;
 	height:380px;
     overflow: hidden;
@@ -43,7 +45,7 @@ html, body{
 
 a#show_cart{
     background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #E8E7DC;
+    border: 2px solid black;
     cursor: pointer;
 	display:block;
     display: inline-block;
@@ -55,9 +57,13 @@ a#show_cart{
 	font-weight:bold;
     text-transform: uppercase;
 }
+
+#show_cart:hover{
+	border:2px solid red ;
+}
 .add-to-cart-button{
     background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #E8E7DC;
+    border: 1px solid #D1B2FF;
     cursor: pointer;
     display: inline-block;
     font: 9px/21px "Helvetica Neue",Helvetica,"Nimbus Sans L",Arial,sans-serif;
@@ -74,23 +80,24 @@ a#show_cart{
 .shopp{background: none repeat scroll 0 0 #F8F8F3;}
 
 #wrap ul li{
- 
+ 	
 	list-style-type:none; 
 	height:146px; 
-	width:160px; 
+	width:160px;
+	margin-top:10px;
 	margin-left:10px; 
 	margin-bottom:15px; 
 	float:left;
 	padding:15px 0px 0px 0px;
 	font-family:"LubalGraphBdBTBold",Tahoma;
 	font-size:2em;
-	border:solid #fff 1px; 
+	border:solid #D1B2FF 1px; 
 	overflow:hidden;
 }
 
-.footer{ height:400px; background:#E2E2E2} 
+.footer{ height:400px; background-color:#e9e9e9;} 
 
-#wrap ul li:hover{ border:solid #f3f4ee 1px; }
+#wrap ul li:hover{ border:solid blue 1px; }
 
 #wrap ul li div{ 
 

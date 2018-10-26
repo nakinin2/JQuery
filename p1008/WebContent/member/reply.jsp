@@ -1,38 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*"%>
     <% request.setCharacterEncoding("utf-8"); %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script language="javascript">
-function replyCheck(){
-	var form = document.replyform;
-	
-	if( !form.name.value){ //form에 있는 name 값이 없을 때
-		alert("이름을 적어주세요");
-		form.name.focus(); //form에 있는 name위치로 이동
-		return;
-	}
-	if( !form.password.value){
-		alert("비밀번호를 적어주세요");
-		form.password.focus();
-		return;
-	}
-	if( !form.title.value){
-		alert("제목을 적어주세요");
-		form.title.focus();
-		return;
-	}
-	if( !form.memo.value){
-		alert("내용을 적어주세요");
-		form.memo.focus();
-		return;
-	}
-	form.submit();
-}
-</script>
+<script src="function/reply-function.js" type="text/javascript"></script>
 <%
 	String checkName = "";
 	checkName = (String)session.getAttribute("s_name");
@@ -75,34 +49,28 @@ function replyCheck(){
 		}
 	%>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/reply-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/list-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/view-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/modify-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/delete-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/write-style.css" rel="stylesheet" type="text/css">
+
 <script src="jquery/jquery.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.min.js" type="text/javascript"></script>
-<style>
-body{
-	line-height:1.2em;
-	font-size:0.75em;
-	background-color:#e9e9e9;
-}
-
-#reply-page{
-	background-color:#e9e9e9;
-}
-#reply-table{
-	background-color:#D5D5D5;
-}
-	#btn-td{
-	font-size:15px;
-	text-align:center;
-	margin:10px;
-	width:100%;
-}
-</style>
+<script src="function/reply-function.js" type="text/javascript"></script>
+<script src="function/write-function.js" type="text/javascript"></script>
+<script src="function/delete-function.js" type="text/javascript"></script>
+<script src="function/modify-function.js" type="text/javascript"></script>
 </head>
 <body>
 <div data-role="page" id="reply-page">
-	<div data-role="header" id="reply-header" data-position="fixed"></div><!-- reply-header -->
-		<div data-role="content" style="height:100vh;">
+	<div data-role="header" id="reply-header" data-position="fixed">
+		<h1 align="center" id="reply-header-text">고객 센터</h1>
+	</div><!-- reply-header -->
+		<div data-role="content" style="height:100%;">
 			<form name = replyform method = post action = "reply_ok.jsp?idx=<%=idx %>" >
 			<table align="center" width="100%" id="reply-table">
 				<tr>
@@ -135,7 +103,7 @@ body{
 						<tr>
 							<td>&nbsp;</td>
 							<td align="center"><strong>비밀번호</strong></td>
-							<td><input type="password" name="password" size="50" maxlength="50"></td>
+							<td><input type="password" name="password" ></td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr height="1" bgcolor="#dddddd">
@@ -157,8 +125,8 @@ body{
 							<td>&nbsp;</td>
 							<td colspan="2" id="td" width="100%">
 							<div id="btn-td"  >
-								<div><a href="#" OnClick="javascript:replyCheck()" class="ui-btn">등록</a></div>
-								<div><a href="#" OnClick="javascript:history.back(-1)" class="ui-btn">취소</a></div>
+								<div style="padding:10px;"><a href="#" OnClick="javascript:replyCheck()" class="ui-btn" >등록</a></div>
+								<div style="padding:10px;"><a href="#" OnClick="javascript:history.back(-1)" class="ui-btn" >취소</a></div>
 							</div>
 							</td>
 							<td>&nbsp;</td>

@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>쇼핑몰</title>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-<!--내가 만든 CSS 파일 경로 -->
 <link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
-<!-- --------------------------- -->
+<link href="css/list-style.css" rel="stylesheet" type="text/css"/>
+
 <script src="jquery/jquery.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.min.js"></script>
-<!--내가 만든 JS 파일 경로 -->
 <script type="text/javascript">
 $(document).on("ready",function(){
 	$(".right").fadeOut(2000);
@@ -23,8 +22,7 @@ $(document).on("ready",function(){
 <body>
 <div data-role="page" id="page" >
 	<div id="header" data-role="header" data-theme="a" data-position="fixed">
-		<div align="center"><a id="logo" href="#" target="_self">Pooh쇼핑몰</a>
-		</div>
+		<div align="center"><a id="logo" href="main_logout.jsp" target="_self">Pooh쇼핑몰</a></div>
 		<span class="right" >
 			<%String checkName= "";
 		 	 String checkId = "";

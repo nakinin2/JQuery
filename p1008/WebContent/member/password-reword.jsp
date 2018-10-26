@@ -29,7 +29,7 @@
 		  conn = DriverManager.getConnection(jdbc_url, "testuser", "1234");
 		  
 		  //아이디 중복 검사
-		  sql = "select*from member where id = ?";
+		  sql = "select id, name, nickname, tel, email from member where id = ?";
 		  pstmt = conn.prepareStatement(sql);
 		  pstmt.setString(1, id);
 		  rs = pstmt.executeQuery();
@@ -39,9 +39,20 @@
 			  String userID = rs.getString("id"); //데이터베이스에 있는 id를 받는다
 			  String userPWD = rs.getString("passwd"); //데이터베이스에 있는 passwd를 받는다
 			  String userName = rs.getString("name"); //데이터베이스에 있는 name를 받는다
-			  
-			  	if(passwd.equals(userPWD)) {%>
-			  		<%= rs.getString("name") %>님 환영합니다.<%
+			  String userTel = rs.getString("tel");
+			  String userEmail = rs.getString("email");
+			  if(userID.equals(userID)) {
+			  	while(rs.next()){%>
+				<table>
+				<tr>
+					<td><%= rs.getString("id") %></td>
+					<td><%= rs.getString("name") %></td>
+					<td><%= rs.getString("nickname") %></td>
+					<td><%= rs.getString("tel") %></td>
+					<td><%= rs.getString("email") %></td>
+				</tr>
+				<%
+				}
 			  		session.setAttribute("s_name", userName);
 			  		session.setAttribute("s_Id", userID);
 			  		
@@ -49,11 +60,12 @@
 			  	}else{
 			  		%>
 						<script>
-			  			alert("패스워드가 맞지 않습니다.<br>패스워드를 다시 입력하세요.");
+			  			self.window.alert("패스워드가 맞지 않습니다.<br>패스워드를 다시 입력하세요.");
 			  			</script>
 			  			<%
 			  			}
 			}else { %>
+
 				<script>
 				alert("아이디와 비밀번호를 입력해 주세요.");
 				</script>

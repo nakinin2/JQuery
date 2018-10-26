@@ -15,14 +15,14 @@
 	int idx = Integer.parseInt(request.getParameter("idx"));
 	
 	String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-	String jdbcUrl = "jdbc:mysql://localhost/yangjung?serverTimezone=UTC&characterEncoding=UTF-8";
+	String jdbcUrl = "jdbc:mysql://localhost/jquery?serverTimezone=UTC&characterEncoding=UTF-8";
 	
 	try{
 		Class.forName(jdbcDriver);
 		conn = DriverManager.getConnection(jdbcUrl, "testuser", "1234");
 		Statement stmt = conn.createStatement();
 		
-		sql = "SELECT NAME, PASSWORD, TITLE, MEMO FROM board WHERE NUM=" + idx;
+		sql = "SELECT NAME, PASSWORD, TITLE, MEMO FROM list WHERE NUM=" + idx;
 		rs = stmt.executeQuery(sql);
 		
 		if(rs.next()){
@@ -38,98 +38,120 @@
 		out.println(e.toString());
 	}
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시판</title>
 <script type="text/javascript">
-function modifyCheck(){
-	var form = document.modifyform;   // if 안에 document.modifyform을 써야 되는데 form이라는 변수를 줘서 간략하게 쓰기 위해서 설정했다.
-	
-	if( !form.password.value) {
-		alert("비밀번호를 적어주세요.");
-		form.password.focus();
-		return;
-	}
-	if( !form.title.value) {
-		alert("제목을 적어주세요.");
-		form.title.focus();
-		return;
-	}
-	if( !form.memo.value) {
-		alert("내용을 적어주세요.");
-		form.memo.focus();
-		return;
-	}
-	form.submit();
-}
+
 </script>
+<link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/modify-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/list-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/reply-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/view-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/delete-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/write-style.css" rel="stylesheet" type="text/css">
+
+<script src="jquery/jquery.min.js" type="text/javascript"></script>
+<script src="jquery/jquery.js" type="text/javascript"></script>
+<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+<script src="function/modify-function.js" type="text/javascript"></script>
+<script src="function/reply-function.js" type="text/javascript"></script>
+<script src="function/write-function.js" type="text/javascript"></script>
+<script src="function/delete-function.js" type="text/javascript"></script>
 </head>
 <body>
-<table>
-<form name = modifyform method=post action="modify_ok.jsp?idx=<%=idx %>">
-<tr>
-	<td>
-		<table width="100%" cellpadding="0" cellspacing="0" border="0">
-			<tr style="background:url('images/table_mid.gif') repeat-x; text-align:center;">
-				<td width="5"><img src = "images/table_left.gif" width="5" height="30"></td>
-				<td>수정</td>
-				<td width="5"><img src = "images/table_right.gif" width="5" height="30"></td>
-			</tr>
+	<div data-role="page" id="modi-page">
+	<div data-role="header" id="modi-header" data-position="fixed">
+		<h1 id="modi-header-text">고객센터</h1>
+	</div><!-- modi-header -->
+		<div data-role="content" id="modi-content" style="height:100%;">
+		<form name = modifyform method=post action="modify_ok.jsp?idx=<%=idx %>">
+		<table align="center" style="width:100%;">
+		<tr>
+			<td>
+			<table width="100%" cellpadding="0" cellspacing="0" border="0">
+				<tr style="background:url('images/table_mid.gif') repeat-x; text-align:center;">
+					<td width="5"><img src = "images/table_left.gif" width="5" height="30"></td>
+					<td>수정</td>
+					<td width="5"><img src = "images/table_right.gif" width="5" height="30"></td>
+				</tr>
 			</table>
-			<table>
-				<tr>
-					<td>&nbsp;</td>
-					<td align="center">제목</td>
-					<td><input type=text name=title size=50 maxlength=50 value="<%=title %>"></td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr height="1" bgcolor=#dddddd>
-					<td colspan="4"></td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td align="center">이름</td>
-					<td><%=name %><input type=hidden nam=name size=50 maxlength=50 value="<%=name %>"></td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr height="1" bgcolor="#dddddd">
-					<td colspan="4"></td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td align="center">비밀번호</td>
-					<td><input type=password name="password" id="pass" size=50 maxlength=50></td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr height="1" bgcolor="#dddddd">
-					<td colspan="4"></td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td align="center">내용</td>
-					<td><textarea name=memo cols=50 rows=13><%=memo %></textarea></td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr height="1" bgcolor="#dddddd">
-					<td colspan="4"></td>
-				</tr>
-				<tr height="1" bgcolor="#82B5DF">
-					<td colspan="4"></td>
-				</tr>
-				<tr align="center">
-					<td>&nbsp;</td>
-					<td colspan="2">
-					<input type="button" value="수정" OnClick="javascript:modifyCheck();">
-					<input type=button value="취소" OnClick="javascript:history.back(-1)">
-					</td>
-					<td>&nbsp;</td>
+			<table width="100%">
+					<tr>
+						<td>&nbsp;</td>
+						<td align="center"><strong>제목</strong></td>
+						<td><input type=text name=title size=50 maxlength=50 value="<%=title %>"></td>
+						<td>&nbsp;</td>
 					</tr>
-					</table>
-					</td>
-				</tr>
-			</form>
+					<tr height="1" bgcolor=#dddddd>
+						<td colspan="4"></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="center"><strong>이름</strong></td>
+						<td><%=name %><input type=hidden nam=name size=50 maxlength=50 value="<%=name %>"></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr height="1" bgcolor="#dddddd">
+						<td colspan="4"></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="center"><strong>비밀번호</strong></td>
+						<td><input type=password name="password" id="pass" size=50 maxlength=50></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr height="1" bgcolor="#dddddd">
+						<td colspan="4"></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="center"><strong>내용</strong></td>
+						<td><textarea name=memo cols=50 rows=13><%=memo %></textarea></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr height="1" bgcolor="#dddddd">
+						<td colspan="4"></td>
+					</tr>
+					<tr height="1" bgcolor="#82B5DF">
+						<td colspan="4"></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td colspan="2" >
+						<div id="sub-btn" style="display:flex; justify-content:center;">
+						<div style="padding:10px 18px 10px 18px;"><input type="button" value="수정" OnClick="javascript:modifyCheck();"></div>
+						<div style="padding:10px 18px 10px 18px;"><input type=button value="취소" OnClick="javascript:history.back(-1)"></div>
+						</div>
+						</td>
+						<td>&nbsp;</td>
+						</tr>
+			</table>
+			</td>
+		</tr>		
 		</table>
+		</form>
+		</div><!-- modi-content -->
+		<div data-role="footer" id= "modi-footer" data-position="fixed">
+			<div id="modi-copyright" >
+				<h3>Copyright (c) 2018 yangjeong All rights reserved<h3>
+				<div id="modi-SNS">
+					<a href="http://facebook.com" target="_blank">
+						<img src="images/facebook.gif" height="32" alt="Facebook">
+					</a>
+					<a href="http://twitter.com" target="_blank">
+						<img src="images/twitter.gif" height="32" alt="Twitter">
+					</a>
+					<a href="http://plus.google.com" target="_blank">
+						<img src="images/googleplus-icon.png" height="32" alt="Google Plus">
+					</a>
+				</div>
+			</div>
+		</div><!-- modi-footer -->
+	</div><!-- modi-page -->
 </body>
 </html>

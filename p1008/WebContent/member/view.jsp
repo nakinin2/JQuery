@@ -7,7 +7,7 @@
 		%>
 		<script>
 			self.window.alert("먼저 로그인 하세요.");
-			location.href = "javascript:history.back()";
+
 		</script>
 		<%
     }
@@ -39,68 +39,23 @@
     		int hit = rs.getInt(5);
     		hit++;
     	    %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>게시판</title>
+<!DOCTYPE html>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/view-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/list-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/modify-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/write-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/reply-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/delete-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
+
 <script src="jquery/jquery.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.min.js"></script>
-<style>
-body{
-	line-height:1.2em;
-	font-size:0.75em;
-	background-color:#e9e9e9;
-}
-
-#view-header{
-	height:55px;
-}
-
-#back-Icon{	/*헤드에서 뒤로 가기 메뉴 버튼의 이미지 크기 조절*/
-	width:30px;
-	height:30px;
-	margin-top:7px;
-	margin-left:7px;
-}
-
-#view-page{
-	background-color:#e9e9e9;
-}
-
-a{
-	text-decoration:none;
-}
-
-.view-btns{
-	margin-left:20px;
-	float:left;
-	font-size:15px;
-}
-
-#img-td{
-background-repeat:repeat-x;
-}
-
-#view-footer{
-height:80px;
-}
-
-#view-footer #view-copyright{
-	margin:20px 0 0 10px;
-	text-align:center;
-	font-family: consolas;
-	font-weight: bold;
-}
-
-#view-footer #view-SNS{
-	margin:10px 20px 0 0;
-	text-align:right;
-}
-</style>
-</head>
+<script src="function/reply-function.js" type="text/javascript"></script>
+<script src="function/write-function.js" type="text/javascript"></script>
+<script src="function/delete-function.js" type="text/javascript"></script>
+<script src="function/modify-function.js" type="text/javascript"></script>
 <body>
 <div data-role="page" id="view-page">
 <div data-role="header" id="view-header" data-position="fixed">
@@ -193,11 +148,13 @@ height:80px;
 						<tr>
 							<td width="0%">&nbsp;</td>
 							<td colspan="2" width="100%">
-								<div class="view-btns" style="width:90px; "><a href="write.jsp" >글쓰기</a></div>
-								<div class="view-btns" style="width:90px; " ><a href="reply.jsp?idx=<%=idx %>" >답글</a></div>
-								<div class="view-btns" style="width:90px; " ><a href="list.jsp" >목록</a></div>
-								<div class="view-btns" style="width:90px; " ><a href="modify.jsp?idx=<%=idx%>" >수정</a></div>
-								<div class="view-btns" style="width:90px; " ><a href="delete.jsp?idx=<%=idx%>" >삭제</a></div>			
+							<div id="view-div">
+								<div class="view-btns" ><a href="write.jsp" >글쓰기</a></div>
+								<div class="view-btns" ><a href="reply.jsp?idx=<%=idx %>" >답글</a></div>
+								<div class="view-btns" ><a href="list.jsp" >목록</a></div>
+								<div class="view-btns" ><a href="modify.jsp?idx=<%=idx%>" >수정</a></div>
+								<div class="view-btns" ><a href="delete.jsp?idx=<%=idx%>" >삭제</a></div>			
+							</div>
 							</td>
 							<td width="0%">&nbsp;</td>
 						</tr>
@@ -224,4 +181,3 @@ height:80px;
 	</div><!-- view-page-footer -->
 </div><!-- view-page -->
 </body>
-</html>

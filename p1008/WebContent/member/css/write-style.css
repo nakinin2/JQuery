@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+body{
+	line-height:1.2em;
+	font-size:0.75em;
+	background-color:#e9e9e9;
+}
+
+#write-page{
+	background-color:#e9e9e9;
+}
+
+#write-header-text{
+	font-size:25px;
+}
+
+#table{
+	background-color:#D5D5D5;
+}
+.write-btn-tr{
+	font-size:15px;
+	text-align:center;
+	margin:10px;
+}
+
+a{
+text-decoration:none;
+}
+
+#write-footer{
+height:80px;
+}
+
+#write-footer #write-copyright{
+	margin:20px 0 0 10px;
+	text-align:center;
+	font-family: consolas;
+	font-weight: bold;
+}
+
+#write-footer #write-SNS{
+	margin:10px 20px 0 0;
+	text-align:right;
+}

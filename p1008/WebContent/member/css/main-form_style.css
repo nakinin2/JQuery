@@ -16,10 +16,12 @@ body{
 }
 /* 메인 헤드 부분*/
 #logo{
-	font-size:35px;
+	line-height:1.2em;
+	font-size:30px;
 }
 
 #header{
+	
 	height:100px;
 }
 
@@ -60,12 +62,11 @@ a{
 }
 
 #nav-bar ul li {
-     float: left;
-     list-style: none;
+	display:flex;
+	justify-content:center;
     }
 
 #nav-bar a{
-	display:block;
 	height:18px;
 	text-decoration:none;
 	color:#ff00000;
@@ -76,10 +77,6 @@ a{
 #nav-bar a:hover{
 	background-color:#FFB2D9;
 	color:white;
-}
-#nav-bar a:active{
-	background-color:#FFB2D9;
-	color:darkblue;
 }
 
 #login-btn{
