@@ -44,7 +44,6 @@
 			  		<%= rs.getString("name") %>님 환영합니다.<%
 			  		session.setAttribute("s_name", userName);
 			  		session.setAttribute("s_Id", userID);
-			  		
 			  		response.sendRedirect("main_logout.jsp");//main.jsp에 seesion의 정보를 보낸다.
 			  	}else{
 			  		%>

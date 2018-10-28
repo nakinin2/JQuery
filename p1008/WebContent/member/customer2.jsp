@@ -35,11 +35,16 @@
 		//ID가 중복일 경우
 		if(rs.next()){
 			%>
-				<span>이미 등록된 아이디입니다.</span>
-			<%
-		}else{
-			%>
-				<span>사용 가능한 아이디입니다.</span>
+			<body>
+			<table>
+				<tr>
+					<td><%= rs.getString("id") %></td>
+					<td><%= rs.getString("name") %></td>
+					<td><%= rs.getString("nickname") %></td>
+					<td><%= rs.getString("tel") %></td>
+					<td><%= rs.getString("email") %></td>
+				</tr>
+			</table></body>	
 			<%
 		}
 	}catch(SQLException e){

@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="function/reply-function.js" type="text/javascript"></script>
+
 <%
 	String checkName = "";
 	checkName = (String)session.getAttribute("s_name");
@@ -49,25 +49,30 @@
 		}
 	%>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-<link href="css/reply-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/list-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/view-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/modify-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/delete-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/write-style.css" rel="stylesheet" type="text/css">
+<link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/member_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/list_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/write_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/view_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/reply_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/modify_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/delete_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/customer_style.css" rel="stylesheet" type="text/css"/>
 
-<script src="jquery/jquery.js" type="text/javascript"></script>
-<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
-<script src="jquery/jquery.min.js" type="text/javascript"></script>
-<script src="function/reply-function.js" type="text/javascript"></script>
+<script src="function/member_write_functions.js"  type="text/javascript"></script>
 <script src="function/write-function.js" type="text/javascript"></script>
-<script src="function/delete-function.js" type="text/javascript"></script>
 <script src="function/modify-function.js" type="text/javascript"></script>
+<script src="function/reply-function.js" type="text/javascript"></script>
+<script src="function/delete-function.js" type="text/javascript"></script>
+<script src="function/product_function.js" type="text/javascript"></script>
+
+<script src="jquery/jquery.min.js" type="text/javascript"></script>
+<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div data-role="page" id="reply-page">
 	<div data-role="header" id="reply-header" data-position="fixed">
+		<a href="list.jsp"  id="btn-a" class="ui-btn-left" data-iconpos="notext" data-role="none"><img src="images/back-btn.png" id="back-Icon" alt="뒤로 가기"></a>
 		<h1 align="center" id="reply-header-text">고객 센터</h1>
 	</div><!-- reply-header -->
 		<div data-role="content" style="height:100%;">

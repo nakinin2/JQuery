@@ -40,19 +40,19 @@ height:80px;
 	text-align:right;
 }
 
-table{
+#custom-table{
 margin:0 auto;
 border-collapse:collapse;
 text-align:center;
 font-size:12px;
 }
-td{
+#custom-table td{
 border:2px solid gray;
 }
 .field{
 font-weight:bold;
 background:aqua;
 }
-table tr td{
+#custom-table tr td{
 padding:10px;
 }

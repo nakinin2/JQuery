@@ -9,6 +9,13 @@ body{
 	background-color:#e9e9e9;
 }
 
+#back-Icon{	/*헤드에서 뒤로 가기 메뉴 버튼의 이미지 크기 조절*/
+	width:30px;
+	height:30px;
+	margin-top:7px;
+	margin-left:7px;
+}
+
 #write-header-text{
 	font-size:25px;
 }

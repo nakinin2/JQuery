@@ -6,13 +6,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-<link href="css/customer-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/member_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/list_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/write_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/view_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/reply_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/modify_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/delete_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/customer_style.css" rel="stylesheet" type="text/css"/>
 
+<script src="function/member_write_functions.js"  type="text/javascript"></script>
+<script src="function/write-function.js" type="text/javascript"></script>
+<script src="function/modify-function.js" type="text/javascript"></script>
+<script src="function/reply-function.js" type="text/javascript"></script>
+<script src="function/delete-function.js" type="text/javascript"></script>
+<script src="function/product_function.js" type="text/javascript"></script>
 <script src="jquery/jquery.min.js" type="text/javascript"></script>
-<script src="jquery/jquery.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
-
 </head>
 <body>
 <%
@@ -24,7 +35,7 @@
 	String checkPasswd="";
 	checkName = (String)session.getAttribute("s_name");
 	checkId = (String)session.getAttribute("s_Id");
-	checkNickname = (String)session.getAttribute("s_ninkname");
+	checkNickname = (String)session.getAttribute("s_nickname");
 	checkTel = (String)session.getAttribute("s_tel");
 	checkEmail = (String)session.getAttribute("s_email");
 %><%
@@ -43,7 +54,7 @@
 	<h1 align="center" id="custom-header-text">내 정보</h1>
 </div><!-- custom-header -->
 <div data-role="content" id="custom-content">
-<table widht="100vw" height="100vh">
+<table id="custom-table" widht="100vw" height="100vh">
 	<tr  class= "field" align="center">
 		<td rowspan="2"><strong>내 정보</strong></td>
 		<td><strong>아이디</strong></td>

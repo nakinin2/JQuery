@@ -3,55 +3,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>쇼핑몰</title>
+
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/list-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/write-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/reply-style.css" rel="stylesheet" type="text/css">
-<link href="css/view-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/modify-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/delete-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/customer-style.css" rel="stylesheet" type="text/css"/>
-
+<link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main_form_style2.css" rel="stylesheet" type="text/css"/>
+<link href="css/member_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/list_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/write_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/view_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/reply_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/modify_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/delete_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/customer_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/product_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/intro_style.css" rel="stylesheet" type="text/css"/>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="jquery/jquery.min.js" type="text/javascript"></script>
-<script src="jquery/jquery.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+<script src="function/member_write_functions.js"  type="text/javascript"></script>
 <script src="function/write-function.js" type="text/javascript"></script>
-<script src="function/reply-function.js" type="text/javascript"></script>
 <script src="function/modify-function.js" type="text/javascript"></script>
+<script src="function/reply-function.js" type="text/javascript"></script>
 <script src="function/delete-function.js" type="text/javascript"></script>
-<script>
-$(function() {
-	$("#cart-btn").click(function() {
-		var form = jQuery("form[name='cart_form']").serialize();
-		$.ajax({
-			url:"product.html",
-			type:"POST",
-			dataType:"html",
-			data: form,
-			success: function(data){
-				$("#cart-form").html(data);
-			},//end success
-			error: function(data){
-				alert("오류가 발생했습니다.");
-			}//end error
-		});//end ajax
-		return false;
-	});//end click
-});
+<script src="function/product_function.js" type="text/javascript"></script>
 
-$('#cart-btn').click(function(){
-	$('#cart-form').load('product.html #cart_form')
-	return false;
-});
-</script>
 </head>
 <body>
 <div data-role="page" id="page" >
 	<div id="header" data-role="header" data-theme="a" data-position="fixed" >
 		<a href="#add-form" id="log-in" class="ui-btn-left" data-iconpos="notext" data-role="none"><img src="images/login.png" id="login-Icon" alt="로그인"></a>
 		<div align="center"><a id="logo" href="main.html" target="_self">Pooh쇼핑몰</a></div>
-		 <a href="#nav-panel2" data-iconpos="notext" class="ui-btn-right" data-role="none"><img src="images/menu-btn.png" id="right-top-menu-Icon" alt="오른쪽 메뉴 목록"></a>
+		<a href="#nav-panel2" data-iconpos="notext" class="ui-btn-right" data-role="none"><img src="images/menu-btn.png" id="right-top-menu-Icon" alt="오른쪽 메뉴 목록"></a>
+		<form><input type="search" class="btn_search" style="width:100%;"></form>
 	</div><!-- /header -->
 	
 	<div data-role="content" style="background:#e9e9e9;">
@@ -59,7 +42,7 @@ $('#cart-btn').click(function(){
 			<ul>
 				<li><a href="#nav-panel"><img src="images/menu-btn.png" id="menu-Icon" alt="전체 메뉴 보기"></a></li>
 			 	<li><a href="product.html" target="display_area">상품</a></li>
-			 	<li><a href="list.jsp" target="display_area">고객센터</a></li>
+			 	<li><a href="list.jsp" >고객센터</a></li>
 			 </ul>
 		</div><!-- /navbar -->
 		
@@ -67,7 +50,6 @@ $('#cart-btn').click(function(){
 		
 		<article class="left" id="article">
 		     <div align="center" ><iframe name="display_area" src="product.html" id="iframe-form"></iframe></div>
-			 <span id="cart-form">dfdf</span>
 		</article><!-- /article -->
 		
 		<hr><!-- 줄 긋기 -->
@@ -102,13 +84,12 @@ $('#cart-btn').click(function(){
 		<ul data-role="listview">
 		<li data-icon="delete" data-theme="b"><a href="#" data-rel="close" >메뉴 닫기</a></li>
 		<li><a href="member-form.html"  id="regist-btns" >회원가입</a></li>
-		<li><a href="#customer-form">내정보</a></li>
-		<li><a href="#" id="cart-btn">장바구니</a></li>
-		<li><a href="list.jsp" target="display_area">고객센터</a></li>	
+		<li><a href="#customer_form">내정보</a></li>
+		<li><a href="list.jsp">고객센터</a></li>	
 	</ul>
 </div><!-- /right-menu-panel -->
 
-<div data-role="panel"data-position-fixed="true" data-display="push" data-theme="a" id="add-form"  data-position="left"  data-swipe-close="false">
+<div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="add-form"  data-position="left"  data-swipe-close="false">
 	<form method="post" class="userform" id="user-form" name="loginform" action="logins.jsp" >
 	   <h2>Login</h2>
 	   <label for="name">Username:</label>
@@ -124,12 +105,10 @@ $('#cart-btn').click(function(){
 	</form>
 </div><!-- /login panel -->
 
-<div data-role="panel" data-position="right" data-position-fixed="true" data-display="push" data-theme="a" id="customer-form" data-swipe-close="false">
-	<form method="post" class="userform" id="user-form" name="loginform" action="customer.jsp" >
-	   <h2 align="center">내 정보</h2>
-
+<div data-role="panel" data-position="right" data-position-fixed="true" data-display="push" data-theme="a" id="customer_form" data-swipe-close="false">
+	<form method="post" class="userform" id="user_form" name="loginform" action="customer.jsp" >
 	   <label for="password">Password:</label>
-	   <input type="password" name="custom-passwd" id="login-password" value="" data-clear-btn="true" autocomplete="off" data-mini="true" required="required">
+	   <input type="password" name="custom_passwd" id="login-password" value="" data-clear-btn="true" data-mini="true" required="required">
 	   <span id="login-text"></span>
        <div class="ui-grid-a">
 	   <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini">Cancel</a></div>

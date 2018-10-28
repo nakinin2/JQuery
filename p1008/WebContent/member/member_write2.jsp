@@ -23,11 +23,11 @@
     		conn=DriverManager.getConnection(jdbc_url,"testuser","1234");
     		
     		//정보를 받을 것을 get으로 나타낸다
-    		String id = request.getParameter("id");
-    		String name = request.getParameter("name");
-    		String passwd = request.getParameter("passwd");
-    		String nickname= request.getParameter("nickname");
-    		String tel = request.getParameter("tel");
+    		String id = request.getParameter("Id");
+    		String name = request.getParameter("Name");
+    		String passwd = request.getParameter("Passwd");
+    		String nickname= request.getParameter("NickName");
+    		String tel = request.getParameter("Tels");
     		String email = request.getParameter("email1");
     		
     		sql="insert into member values(?, ?, ?, ?, ?, ?)";
@@ -38,18 +38,26 @@
     		pstmt.setString(4,nickname);
     		pstmt.setString(5,tel);
     		pstmt.setString(6,email);
-    			
+    		
     		pstmt.executeUpdate();
     		%>
-			<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+			
 			<html>
 			<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<title>결과 창</title>
+			<script src="http://code.jquery.com/jquery-latest.js"></script>
+			<link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+			<link href="css/member_form_style.css" rel="stylesheet" type="text/css"/>
+			<link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
+
+			<script src="jquery/jquery.min.js" type="text/javascript"></script>
+			<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+			<script src="function/member_write_functions.js"  type="text/javascript"></script>
 			</head>
 			<body>
 				<div data-role="page" id="page">
-				<div data-role="header" data-theme="b">
+				<div data-role="header" data-theme="b" data-position="fixed">
 					<h1>회원가입 확인</h1>
 				</div>
 			    <div data-role="content">
@@ -63,8 +71,7 @@
 					</div>
 				</div>
 			    </div>
-			</body>
-			</html>
+		
     		<% 
     			
     		//로그인 후, 사용자 홈으로 이동
@@ -77,4 +84,5 @@
     	}
    %>
 
-  
+  		</body>
+		</html>

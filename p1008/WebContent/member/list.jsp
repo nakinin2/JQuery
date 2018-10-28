@@ -1,29 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import = "java.sql.*"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>게시판</title>
-<link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-<link href="css/list-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/write-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/reply-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/view-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/delete-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/modify-style.css" rel="stylesheet" type="text/css"/>
 
-<script src="jquery/jquery.js" type="text/javascript"></script>
-<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
-<script src="jquery/jquery.min.js" type="text/javascript"></script>
-<script src="function/reply-function.js" type="text/javascript"></script>
-<script src="function/write-function.js" type="text/javascript"></script>
-<script src="function/reply-function.js" type="text/javascript"></script>
-<script src="function/delete-function.js" type="text/javascript"></script>
-
-</head>
-<body>
 <% //데이터 베이스 연결 관련 정보를 변수 선언
 	Connection conn = null;
 	PreparedStatement pstmt = null;
@@ -53,6 +30,33 @@
 		rs = stmt.executeQuery(sql);
 		
 		%>
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>게시판</title>
+	<link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/member_form_style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/list_style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/write_style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/view_style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/reply_style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/modify_style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/delete_style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/customer_style.css" rel="stylesheet" type="text/css"/>
+	
+	<script src="function/member_write_functions.js"  type="text/javascript"></script>
+	<script src="function/write-function.js" type="text/javascript"></script>
+	<script src="function/modify-function.js" type="text/javascript"></script>
+	<script src="function/reply-function.js" type="text/javascript"></script>
+	<script src="function/delete-function.js" type="text/javascript"></script>
+	<script src="function/product_function.js" type="text/javascript"></script>
+	<script src="jquery/jquery.min.js" type="text/javascript"></script>
+	<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+	
+	</head>
+	<body>
 		<div data-role="page" id="list-page" >
 		<div data-role="header" id="list-header"  data-position="fixed" >
 			<a href="main.html" data-role="none" data-iconpos="notext" class="ui-btn-left"><img src="images/home-button.png" id="main-home-Icon" alt="메인으로"></a>
@@ -76,7 +80,7 @@
 				<%
 				if(total == 0){
 				%>
-				<tr align= "center" bgcolor = "#FFFFFF" height= "30">
+				<tr align= "center" height= "30">
 					<td colspan= "6">등록된 글이 없습니다.</td>
 				</tr>
 				<%

@@ -8,7 +8,7 @@ html, body{
 }
 
 #wrap{ width:100%; min-height:900px; top:0px; position:relative; bottom:0px; }
-#wrap ul{ margin:0px; padding:0px; width: 700px;text-align:center;  }
+#wrap ul{ margin:0px; padding:0px; width: 100%;text-align:center;  }
 
 #wrap .detail-view {
    /* background: none repeat scroll 0 0 #F3F4EE;*/
@@ -35,13 +35,13 @@ html, body{
 	margin-right:20px;
 	margin-top:30px;
 	text-align:justify;
-	width:250px;
+	width:100%;
 	font-size:12px;
 }
 
-#wrap .detail-view .detail_info label{ font-size:12px;text-transform:uppercase; letter-spacing:1px; line-height:60px;} 
+#wrap .detail-view .detail_info label{ font-size:12px;text-transform:uppercase; letter-spacing:1px; text-align:center;} 
 
-#wrap .detail-view .detail_info p{ height:110px;}
+#wrap .detail-view .detail_info p{ height:20px; text-align:center;}
 
 a#show_cart{
     background: none repeat scroll 0 0 #FFFFFF;
@@ -71,6 +71,8 @@ a#show_cart{
     padding-top: 10px;color:#525049;
 	margin-top:15px;
     text-transform: uppercase;
+    float:right;
+    width:170px;
 }
 
 .add-to-cart-button:hover {
@@ -128,7 +130,6 @@ img#cart{bottom:0px;position:fixed; margin-left:30px; /* keep the bar on top  */
 	display:none;
     background:#E2E2E2;
 	font: 12px/21px "Helvetica Neue",Helvetica,"Nimbus Sans L",Arial,sans-serif;
-    
 	position:relative
 }
 
@@ -160,7 +161,7 @@ button:hover {
     background: none repeat scroll 0 0 #F8F8F3;
 }
 
-.cart-total{background: none repeat scroll 0 0 #F8F8F3;}
+.cart-total{background: none repeat scroll 0 0 #F8F8F3; width:100%;}
 
 .shopp,.cart-total{ 
 	border:solid #E8E7DC 1px; padding:8px; 

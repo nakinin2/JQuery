@@ -7,7 +7,7 @@
 		%>
 		<script>
 			self.window.alert("먼저 로그인 하세요.");
-
+			location.href = "javascript:history.back(-1)";
 		</script>
 		<%
     }
@@ -39,23 +39,29 @@
     		int hit = rs.getInt(5);
     		hit++;
     	    %>
-<!DOCTYPE html>
+<html>
+<head>
+<title></title>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-<link href="css/view-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/list-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/modify-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/write-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/reply-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/delete-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/main-form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/member_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/list_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/write_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/view_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/reply_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/modify_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/delete_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/customer_style.css" rel="stylesheet" type="text/css"/>
 
-<script src="jquery/jquery.js" type="text/javascript"></script>
-<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
-<script src="jquery/jquery.min.js"></script>
-<script src="function/reply-function.js" type="text/javascript"></script>
+<script src="function/member_write_functions.js"  type="text/javascript"></script>
 <script src="function/write-function.js" type="text/javascript"></script>
-<script src="function/delete-function.js" type="text/javascript"></script>
 <script src="function/modify-function.js" type="text/javascript"></script>
+<script src="function/reply-function.js" type="text/javascript"></script>
+<script src="function/delete-function.js" type="text/javascript"></script>
+<script src="function/product_function.js" type="text/javascript"></script>
+<script src="jquery/jquery.min.js" type="text/javascript"></script>
+<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+</head>
 <body>
 <div data-role="page" id="view-page">
 <div data-role="header" id="view-header" data-position="fixed">
@@ -181,3 +187,4 @@
 	</div><!-- view-page-footer -->
 </div><!-- view-page -->
 </body>
+</html>

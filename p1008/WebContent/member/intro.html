@@ -3,38 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <title>쇼핑몰 소개</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-<script src="jquery/jquery.min.js" type="text/javascript"></script>
-<script src="jquery/jquery.js" type="text/javascript"></script>
-<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
-<style>
-body{
-	line-height:1.2em;
-	font-size:0.75em;
-	background-color:#e9e9e9;
-}
-#intro-page{
-	background-color:#e9e9e9;
-}
+<link href="css/intro_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/member_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/list_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/write_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/view_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/reply_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/modify_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/delete_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/customer_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/product_style.css" rel="stylesheet" type="text/css"/>
 
-#intro-content{
-	background-color:#e9e9e9;
-}
-</style>
+<script src="jquery/jquery.min.js" type="text/javascript"></script>
+<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+<script src="function/member_write_functions.js"  type="text/javascript"></script>
+<script src="function/write-function.js" type="text/javascript"></script>
+<script src="function/modify-function.js" type="text/javascript"></script>
+<script src="function/reply-function.js" type="text/javascript"></script>
+<script src="function/delete-function.js" type="text/javascript"></script>
+<script src="function/product_function.js" type="text/javascript"></script>
+
 </head>
 <body>
 <div data-role="page" id="intro-page">
 <div data-role="header" id="intro-header" data-position="fixed">
-<p>안녕하십니까?</p>
-<p>제이쿼리 쇼핑몰 포트폴리오를 만들고 있는 문광호 학생입니다.</p><hr>
+	<p>안녕하십니까?</p>
+	<p>제이쿼리 쇼핑몰 포트폴리오를 만들고 있는 문광호 학생입니다.</p><hr>
 </div><!-- intro-header -->
 <div data-role="content" id="intro-content">
-<p>저는 부산시 부산진구 양정동에 있는 <strong style="color:black;">양정인력개발센터</strong>에서<br>
-교육을 받고 있습니다.<br><br>
-<p>지금 보시는 홈페이지는 제가 제이쿼리를 이용하여 만든 쇼핑몰입니다.</p>
-<br><br><br><br><br><br>
-감사합니다.</div>
+	<p>저는 부산시 부산진구 양정동에 있는 <strong style="color:black;">양정인력개발센터</strong>에서<br>
+	교육을 받고 있습니다.<br><br>
+	<p>지금 보시는 홈페이지는 제가 제이쿼리를 이용하여 만든 쇼핑몰입니다.</p>
+	<br><br><br><br><br><br>
+	감사합니다.
+</div><!-- intro-content -->
+	
 <div data-role="footer" id="intro-footer" data-position="fixed">
+	<div id="intro-copyright" >
+			<h3>Copyright (c) 2018 yangjeong All rights reserved</h3>
+		<div id="intro-SNS">
+			<a href="http://facebook.com" target="_blank">
+				<img src="images/facebook.gif" height="32" alt="Facebook">
+			</a>
+			<a href="http://twitter.com" target="_blank">
+				<img src="images/twitter.gif" height="32" alt="Twitter">
+			</a>
+			<a href="http://plus.google.com" target="_blank">
+				<img src="images/googleplus-icon.png" height="32" alt="Google Plus">
+			</a>
+		</div>
+	</div>	
 </div><!-- intro-footer -->
 </div><!-- intro-page -->
 </body>
