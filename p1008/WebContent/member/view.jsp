@@ -43,29 +43,15 @@
 <head>
 <title></title>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-<link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/member_form_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/list_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/write_style.css" rel="stylesheet" type="text/css"/>
 <link href="css/view_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/reply_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/modify_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/delete_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/customer_style.css" rel="stylesheet" type="text/css"/>
 
-<script src="function/member_write_functions.js"  type="text/javascript"></script>
-<script src="function/write-function.js" type="text/javascript"></script>
-<script src="function/modify-function.js" type="text/javascript"></script>
-<script src="function/reply-function.js" type="text/javascript"></script>
-<script src="function/delete-function.js" type="text/javascript"></script>
-<script src="function/product_function.js" type="text/javascript"></script>
 <script src="jquery/jquery.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div data-role="page" id="view-page">
 <div data-role="header" id="view-header" data-position="fixed">
-		<a href="list.jsp"  id="btn-a" class="ui-btn-left" data-iconpos="notext" data-role="none"><img src="images/back-btn.png" id="back-Icon" alt="뒤로 가기"></a>
+		<a href="#" OnClick="javascript:history.back(-1);" id="btn-a" class="ui-btn-left" data-iconpos="notext" data-role="none" data-ajax="false"><img src="images/back-btn.png" id="back-Icon" alt="뒤로 가기" ></a>
 		<h1 align="center" style="font-size:25px;">고객 센터</h1>
 </div><!-- view-page-header -->
 	<div data-role="content" >
@@ -154,12 +140,13 @@
 						<tr>
 							<td width="0%">&nbsp;</td>
 							<td colspan="2" width="100%">
-							<div id="view-div">
-								<div class="view-btns" ><a href="write.jsp" >글쓰기</a></div>
-								<div class="view-btns" ><a href="reply.jsp?idx=<%=idx %>" >답글</a></div>
-								<div class="view-btns" ><a href="list.jsp" >목록</a></div>
-								<div class="view-btns" ><a href="modify.jsp?idx=<%=idx%>" >수정</a></div>
-								<div class="view-btns" ><a href="delete.jsp?idx=<%=idx%>" >삭제</a></div>			
+							<div id="view-div" >
+								<div style="padding:5px;"><input type=button value="글쓰기" OnClick="window.location='write.jsp'" data-ajax="false"></div>
+								<div style="padding:5px;"><input type=button value="답글" OnClick="window.location='reply.jsp?idx=<%=idx%>'" data-ajax="false"></div>
+								<div style="padding:5px;"><input type=button value="목록" OnClick="window.location='list.jsp'" data-ajax="false"></div>
+								<div style="padding:5px;"><input type=button value="수정" OnClick="window.location='modify.jsp?idx=<%=idx%>'" data-ajax="false"></div>
+								<div style="padding:5px;"><input type=button value="삭제" OnClick="window.location='delete.jsp?idx=<%=idx%>'" data-ajax="false"></div>
+		
 							</div>
 							</td>
 							<td width="0%">&nbsp;</td>
@@ -171,7 +158,7 @@
 	</div><!-- view-page-content -->
 	<div data-role="footer" id="view-footer" data-position="fixed">
 		<div id="view-copyright" >
-			Copyright (c) 2018 yangjeong All rights reserved
+			<h3>Copyright (c) 2018 yangjeong All rights reserved</h3>
 		<div id="view-SNS">
 			<a href="http://facebook.com" target="_blank">
 				<img src="images/facebook.gif" height="32" alt="Facebook">

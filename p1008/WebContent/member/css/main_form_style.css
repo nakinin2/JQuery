@@ -2,7 +2,7 @@
 body{
 	line-height:1.2em;
 	font-size:0.75em;
-	background-color:#e9e9e9;
+	background-color:skyblue;
 }
 
 #page{
@@ -12,7 +12,7 @@ body{
 	width:100%;
 	min-height:600px;
 	text-align:left;
-	background-color:white;
+	background-color:skyblue;
 }
 /* 메인 헤드 부분*/
 #logo{
@@ -20,24 +20,8 @@ body{
 	font-size:30px;
 }
 
-#header{
-	
-	height:100px;
-}
-
-a{
-	text-decoration:none;
-}
-
-#nav-bar {
-	background-color:#e9e9e9;
-    font-weight:bold;
-    height:auto;
-}
-
-#menu-Icon{	/*네비바에서 카테고리 메뉴 버튼의 이미지 크기 조절*/
-	width:30px;
-	height:20px;
+#content{
+	background:skyblue;
 }
 
 #exit-Icon{	/*상단바에서 로그아웃 메뉴 버튼의 이미지 크기 조절*/
@@ -61,8 +45,24 @@ a{
 	margin-right:4px;
 }
 
+#header{
+	background-color:skyblue;
+	height:120px;
+}
+
+a{
+	text-decoration:none;
+}
+
+#nav-bar {
+	background-color:#D4F4FA;
+    font-weight:bold;
+    height:auto;
+
+}
+
 #nav-bar ul li {
-	display:flex;
+    display:flex;
 	justify-content:center;
     }
 
@@ -71,18 +71,19 @@ a{
 	text-decoration:none;
 	color:#ff00000;
 	border:0;
-	background-color:#e9e9e9;
+	background-color:#D4F4FA;
 }
 
 #nav-bar a:hover{
-	background-color:#FFB2D9;
-	color:white;
+	background-color:#DAD9FF;
+	color:#030066;
 }
 
-#login-btn{
-	height:10px;
-	width:0 ;
+#menu-Icon{	/*네비바에서 카테고리 메뉴 버튼의 이미지 크기 조절*/
+	width:30px;
+	height:20px;
 }
+
 
 #bar-btn{
 	height:10px;
@@ -111,7 +112,8 @@ a{
 
 
 #footer{
-height:80px;
+	background-color:skyblue;
+	height:80px;
 }
 
 #footer #copyright{

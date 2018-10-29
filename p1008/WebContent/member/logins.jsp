@@ -48,13 +48,15 @@
 			  	}else{
 			  		%>
 						<script>
-			  			alert("패스워드가 맞지 않습니다.<br>패스워드를 다시 입력하세요.");
+			  			alert("패스워드가 맞지 않습니다. 패스워드를 다시 입력하세요.");
+			  			location.href = "javascript:history.back()";
 			  			</script>
 			  			<%
 			  			}
 			}else { %>
 				<script>
-				alert("아이디와 비밀번호를 입력해 주세요.");
+				alert("아이디나 비밀번호가 맞지 않습니다.");
+				location.href = "javascript:history.back()";
 				</script>
 				<% }
 		  }catch(SQLException e) {

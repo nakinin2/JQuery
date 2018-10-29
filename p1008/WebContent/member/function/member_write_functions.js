@@ -1,8 +1,9 @@
 
 //윈도우 모드(return false;를 해 주면 submit이 정보가 일치하지 않아도 넘어가는 현상을 막을 수 있다.)
+jQuery.noConflict();
 
 //이름 메소드
-$(function(){
+jQuery(function($){
 	//name에 포커스
 	$("#Name").focus();
 	//등록 버튼 클릭 시
@@ -48,7 +49,7 @@ $(function(){
 });//end Name funcition
 
 //아이디 메소드(실시간 체크)
-$(function(){
+jQuery(function($){
 	//ID에 포커스
 	$("#Id").focus();
 	//등록 버튼 클릭 시
@@ -95,7 +96,7 @@ $(function(){
 });//end Id funcition
 
 //비밀번호 메소드(실시간 체크)
-$(function(){
+jQuery(function($){
 	//Passwd에 포커스
 	$("#Passwd").focus();
 	//등록 버튼 클릭 시
@@ -162,7 +163,7 @@ $(function(){
 });//end Passwd funcition
 
 //비밀번호 확인 메소드(실시간 체크)
-$(function(){
+jQuery(function($){
 	//repasswd에 포커스
 	$("#repasswd").focus();
 	//등록 버튼 클릭 시
@@ -182,7 +183,7 @@ $(function(){
 });//end repasswd funcition
 
 //닉네임 메소드(실시간 체크)
-$(function(){
+jQuery(function($){
 	//NickName에 포커스
 	$("#NickName").focus();
 	$("#s_insert").click(function(){
@@ -240,7 +241,7 @@ $(function(){
 });//end NickName funcition
 
 //휴대폰 메소드(실시간 체크)
-$(function(){
+jQuery(function($){
 	//Tels에 포커스
 	$("#Tels").focus();
 	$("#s_insert").click(function(){
@@ -268,7 +269,7 @@ $(function(){
 });//end Tels function
 
 //이메일 메소드(실시간 체크)
-$(function(){
+jQuery(function($){
 	//eamil1에 포커스
 	$("#email1").focus();
 	$("#s_insert").click(function(){
@@ -300,7 +301,7 @@ $(function(){
 	});//end click
 });//end email1 function
 
-$(function(){
+jQuery(function($){
 	$("#mem-write-body").click(function(){
 		$("#NameHelper").off("click").text("");
 		$("#IdHelper").off("click").text("");
@@ -313,7 +314,7 @@ $(function(){
 });//end function -body를 눌렀을 때 텍스트가 사라지는 함수
 
 //아이디를 입력하는 도중에 실시간으로 중복확인 하는 방법
-$(function(){
+jQuery(function($){
 	$("#Id").keyup(function() {
 		if ( document.write_form.Id.value.indexOf(" ") > -1 ) {
 			$("#IdHelper").text("공백 없이 입력해 주세요.");
@@ -356,7 +357,8 @@ $(function(){
 	});//end click
 });//end ajax function
 
-function chkform(){
+
+function chkform($){
 	var idchk = document.write_form.id_check2.value;
 	if ( idchk == "" ) {
 		$("#IdHelper").text("아이디 중복 버튼을 눌러 주세요.");

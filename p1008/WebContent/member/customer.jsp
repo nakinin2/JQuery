@@ -6,22 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-<link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/member_form_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/list_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/write_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/view_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/reply_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/modify_style.css" rel="stylesheet" type="text/css"/>
-<link href="css/delete_style.css" rel="stylesheet" type="text/css"/>
 <link href="css/customer_style.css" rel="stylesheet" type="text/css"/>
 
-<script src="function/member_write_functions.js"  type="text/javascript"></script>
-<script src="function/write-function.js" type="text/javascript"></script>
-<script src="function/modify-function.js" type="text/javascript"></script>
-<script src="function/reply-function.js" type="text/javascript"></script>
-<script src="function/delete-function.js" type="text/javascript"></script>
-<script src="function/product_function.js" type="text/javascript"></script>
 <script src="jquery/jquery.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 </head>
@@ -44,13 +30,13 @@
 		%>
 		<script>
 			self.window.alert("먼저 로그인 하세요.");
-
+			location.href = "javascript:history.back()";
 		</script>
 		<%
     }%>
 <div data-role="page" id="custom-page">
 <div data-role="header" id="custom-header"data-position="fixed">
-	<a href="main.html" data-role="none" data-iconpos="notext" class="ui-btn-left"><img src="images/home-button.png" id="custom-main-home-Icon" alt="메인으로"></a>
+	<a href="#" OnClick="javascript:history.back(-1);" data-role="none" data-iconpos="notext" class="ui-btn-left" data-ajax="false"><img src="images/home-button.png" id="custom-main-home-Icon" alt="메인으로"></a>
 	<h1 align="center" id="custom-header-text">내 정보</h1>
 </div><!-- custom-header -->
 <div data-role="content" id="custom-content">
@@ -74,7 +60,7 @@
 </div><!-- custom-content -->
 <div data-role="footer" id="custom-footer" data-position="fixed">
 	<div id="custom-copyright" >
-			Copyright (c) 2018 yangjeong All rights reserved
+			<h3>Copyright (c) 2018 yangjeong All rights reserved</h3>
 		<div id="custom-SNS">
 			<a href="http://facebook.com" target="_blank">
 				<img src="images/facebook.gif" height="32" alt="Facebook">

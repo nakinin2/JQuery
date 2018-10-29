@@ -36,22 +36,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>게시판</title>
 	<link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
-	<link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
-	<link href="css/member_form_style.css" rel="stylesheet" type="text/css"/>
 	<link href="css/list_style.css" rel="stylesheet" type="text/css"/>
-	<link href="css/write_style.css" rel="stylesheet" type="text/css"/>
-	<link href="css/view_style.css" rel="stylesheet" type="text/css"/>
-	<link href="css/reply_style.css" rel="stylesheet" type="text/css"/>
-	<link href="css/modify_style.css" rel="stylesheet" type="text/css"/>
-	<link href="css/delete_style.css" rel="stylesheet" type="text/css"/>
-	<link href="css/customer_style.css" rel="stylesheet" type="text/css"/>
 	
-	<script src="function/member_write_functions.js"  type="text/javascript"></script>
-	<script src="function/write-function.js" type="text/javascript"></script>
-	<script src="function/modify-function.js" type="text/javascript"></script>
-	<script src="function/reply-function.js" type="text/javascript"></script>
-	<script src="function/delete-function.js" type="text/javascript"></script>
-	<script src="function/product_function.js" type="text/javascript"></script>
 	<script src="jquery/jquery.min.js" type="text/javascript"></script>
 	<script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 	
@@ -59,22 +45,22 @@
 	<body>
 		<div data-role="page" id="list-page" >
 		<div data-role="header" id="list-header"  data-position="fixed" >
-			<a href="main.html" data-role="none" data-iconpos="notext" class="ui-btn-left"><img src="images/home-button.png" id="main-home-Icon" alt="메인으로"></a>
+			<a href="#" OnClick="javascript:history.back(-1);"data-role="none" data-iconpos="notext" class="ui-btn-left" data-ajax="false"><img src="images/home-button.png" id="main-home-Icon" alt="메인으로"></a>
 			<h1 align="center" id="list-header-text">고객 센터</h1>
 		</div><!-- list-header-page -->
 		<div data-role="content" >
-		<td width= "5"><strong>총 게시물 : <%=total %>개</strong></td>
-			<table width = "100%" cellpadding = "0" cellspacing = "0" border = "0">
+		<td width= "5" ><strong style="font-size:18px;">총 게시물 : <%=total %>개</strong></td>
+			<table width = "100%" cellpadding = "0" cellspacing = "0" border = "0" >
 				<tr height= "5">
 					<td width= "5"></td>
 				</tr>
 				<tr style="background:url('images/table_mid.gif') repeat-x; text-align:center;">
 					<td width= "5"><img src = "images/table_left.gif" height= "30"></td>
-					<td width="73">번호</td>
-					<td width="379">제목</td>
-					<td width="73">작성자</td>
-					<td width="164">작성일</td>
-					<td width="58">조회수</td>
+					<td width="73"><strong>번호</strong></td>
+					<td width="360"><strong>제목</strong></td>
+					<td width="73"><strong>작성자</strong></td>
+					<td width="164"><strong>작성일</strong></td>
+					<td width="58"><strong>조회수</strong></td>
 					<td width="7"><img src = "images/table_right.gif" height= "30"></td>
 				</tr>
 				<%
@@ -96,7 +82,7 @@
 				%>
 				<tr height= "40" align= "center" style="font-size:17px;">
 					<td>&nbsp;</td>
-					<td><%=idx %></td>
+					<td><strong><%=idx %></strong></td>
 					<td align= "left">
 				<%
 				for(int j=0; j<indent; j++){ //답글 들여쓰기 설정을 위한 것
@@ -107,10 +93,10 @@
 				<%
 				}
 				%>
-				<a href = "view.jsp?idx=<%=idx %>" style="color:black;"><%=title %></a></td>
-				<td align= "center"><%=name %></td>
-				<td align= "center"><%=time %></td>
-				<td align= "center"><%=hit %></td>
+				<a href = "view.jsp?idx=<%=idx %>"  data-ajax="false" style="color:black;"><strong><%=title %></strong></a></td>
+				<td align= "center" style="padding:20px;"><strong><%=name %></strong></td>
+				<td align= "center"><strong><%=time %></strong></td>
+				<td align= "center"><strong><%=hit %></strong></td>
 				<td>&nbsp;</td>
 				</tr>
 				<tr height= "1" bgcolor="#D2D2D2">
@@ -136,13 +122,13 @@
 				<td colspan= "4" height= "5"></td>
 			</tr>
 			<tr align= "right" style="font-size:20px;">
-				<td><a href ="write.jsp" style="color:black; margin-right:10px;">글쓰기</a></td>
+				<td><a href ="write.jsp" data-role="button" style="color:black; margin-right:10px; font-size:18px; font-weight:bold;" data-inline="true" data-ajax="false">글쓰기</a></td>
 			</tr>
 		</table><!-- end table -->
 	</div><!-- list-content-page -->
 	<div data-role="footer" id="list-footer" data-position="fixed">
 		<div id="list-copyright" >
-			Copyright (c) 2018 yangjeong All rights reserved
+			<h3>Copyright (c) 2018 yangjeong All rights reserved</h3>
 		<div id="list-SNS">
 			<a href="http://facebook.com" target="_blank">
 				<img src="images/facebook.gif" height="32" alt="Facebook">

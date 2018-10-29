@@ -32,3 +32,19 @@ body{
 	background-color:white;
 	border-radius:10px;
 }
+
+#reply-footer{
+height:80px;
+}
+
+#reply-footer #reply-copyright{
+	margin:20px 0 0 10px;
+	text-align:center;
+	font-family: consolas;
+	font-weight: bold;
+}
+
+#reply-footer #reply-SNS{
+	margin:10px 20px 0 0;
+	text-align:right;
+}
