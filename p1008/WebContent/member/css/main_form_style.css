@@ -2,7 +2,7 @@
 body{
 	line-height:1.2em;
 	font-size:0.75em;
-	background-color:skyblue;
+	background-color:#EAEAEA;
 }
 
 #page{
@@ -12,7 +12,7 @@ body{
 	width:100%;
 	min-height:600px;
 	text-align:left;
-	background-color:skyblue;
+	background-color:#EAEAEA;
 }
 /* 메인 헤드 부분*/
 #logo{
@@ -21,7 +21,7 @@ body{
 }
 
 #content{
-	background:skyblue;
+	background:#EAEAEA;
 }
 
 #exit-Icon{	/*상단바에서 로그아웃 메뉴 버튼의 이미지 크기 조절*/
@@ -46,8 +46,14 @@ body{
 }
 
 #header{
-	background-color:skyblue;
+	background-color:#EAEAEA;
 	height:120px;
+}
+
+#search-form{
+	 width:300px;
+	 margin:20px;
+	 padding-left:50px;
 }
 
 a{
@@ -112,7 +118,7 @@ a{
 
 
 #footer{
-	background-color:skyblue;
+	background-color:#EAEAEA;
 	height:80px;
 }
 

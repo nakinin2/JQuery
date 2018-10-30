@@ -3,18 +3,18 @@ html, body{
 	padding:0;
 	border:0;
 	outline:0;
-	background-color:#e9e9e9;
+	background-color:#EAEAEA;
 
 }
 #product-header{
-	background-color:skyblue;
+	background-color:#EAEAEA;
 }
 
 #product-footer{
-	background-color:skyblue;
+	background-color:#EAEAEA;
 }
-#wrap{ width:100%; min-height:900px; top:0px; position:relative; bottom:0px; }
-#wrap ul{ margin:0px; padding:0px; width: 100%;text-align:center;  }
+#wrap{ width:100%; height:100%; top:0px; position:relative; bottom:0px; }
+#wrap ul{ margin-left:35px; padding:0px; width: 100%;text-align:center;  }
 
 #wrap .detail-view {
    /* background: none repeat scroll 0 0 #F3F4EE;*/
@@ -108,12 +108,11 @@ a#show_cart{
 	overflow:hidden;
 }
 
-.footer{ height:400px; background-color:#e9e9e9;} 
+.footer{ height:80px; background-color:#EAEAEA;} 
 
 #wrap ul li:hover{ border:solid blue 1px; }
 
-#wrap ul li div{ 
-
+#wrap ul li div{
 	height:31px;
 	text-align:center;
 	width:160px;

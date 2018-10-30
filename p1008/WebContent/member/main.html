@@ -5,9 +5,11 @@
 <title>쇼핑몰</title>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
 <link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main-banner-style.css" rel="stylesheet" type="text/css">
 
 <script src="jquery/jquery.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+<script src="function/main-banner-function.js" type="text/javascript"></script>
 </head>
 <body>
 <div data-role="page" id="page" >
@@ -15,12 +17,22 @@
 		<a href="#add-form" id="log-in" class="ui-btn-left" data-iconpos="notext" data-role="none"><img src="images/login.png" id="login-Icon" alt="로그인"></a>
 		<div align="center"><a id="logo" href="main.html" target="_self">Pooh쇼핑몰</a></div>
 		<a href="#nav-panel2" data-iconpos="notext" class="ui-btn-right" data-role="none"><img src="images/menu-btn.png" id="right-top-menu-Icon" alt="오른쪽 메뉴 목록"></a>
-		<form class="ui-filterable" style="width:300px; margin:20px; padding-left:50px;">
-			<input id="btn_search" data-type="search">
+		<form class="ui-filterable" id="search-form">
+			<input type="search" name="search-1" id="search-1" value="">
 		</form>
 	</div><!-- /header -->
 	
 	<div data-role="content"  id="content">
+		<div class="simple_banner_wrap banner02" data-type="hslide" data-interval="3000">
+			<ul>
+				<li><a href="#"><img src="product_img/1.jpg" width="100%"></a></li>
+				<li><a href="#"><img src="product_img/2.jpg" width="100%"></a></li>
+				<li><a href="#"><img src="product_img/3.jpg" width="100%"></a></li>
+				<li><a href="#"><img src="product_img/4.jpg" width="100%"></a></li>
+				<li><a href="#"><img src="product_img/5.jpg" width="100%"></a></li>
+			</ul>
+		</div>
+		
 		<div data-role="navbar" id="nav-bar">
 			<ul>
 				<li><a href="#nav-panel"><img src="images/menu-btn.png" id="menu-Icon" alt="전체 메뉴 보기"></a></li>
