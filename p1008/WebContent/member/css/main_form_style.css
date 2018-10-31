@@ -2,7 +2,7 @@
 body{
 	line-height:1.2em;
 	font-size:0.75em;
-	background-color:#EAEAEA;
+	background-color:white;
 }
 
 #page{
@@ -12,48 +12,85 @@ body{
 	width:100%;
 	min-height:600px;
 	text-align:left;
-	background-color:#EAEAEA;
+	background-color:white;
 }
+
 /* 메인 헤드 부분*/
 #logo{
 	line-height:1.2em;
 	font-size:30px;
+	color:white;
+}
+
+#logo:hover{
+	color:white;
 }
 
 #content{
-	background:#EAEAEA;
+	background:white;
 }
 
 #exit-Icon{	/*상단바에서 로그아웃 메뉴 버튼의 이미지 크기 조절*/
-	width:30px;
-	height:20px;
-	margin-top:8px;
-	margin-right:9px;
+	width:35px;
+	height:30px;
+}
+
+#exit-icon-a{
+	width:35px;
+	height:30px;
+	margin-top:63px;
+	margin-right:38px;
 }
 
 #login-Icon{	/*상단바 로그인 메뉴 버튼의 이미지 크기 조절*/
-	width:30px;
-	height:20px;
-	margin-top:8px;
+	width:35px;
+	height:30px;
+}
+
+#log-in{
+	width:35px;
+	height:30px;
+	margin-top:63px;
 	margin-right:4px;
 }
 
 #right-top-menu-Icon{	/*상단바 목록 메뉴 버튼의 이미지 크기 조절*/
-	width:30px;
-	height:20px;
-	margin-top:8px;
-	margin-right:4px;
+	width:35px;
+	height:30px;
+}
+
+#right-top-menu-div{
+	width:35px;
+	height:30px;
+	margin-top:63px;
+	margin-right:2px;
 }
 
 #header{
-	background-color:#EAEAEA;
-	height:120px;
+	background-color:black;
+	height:150px;
 }
 
 #search-form{
-	 width:300px;
+	 width:10px;
 	 margin:20px;
 	 padding-left:50px;
+	 animation-fill-mode:forwards;
+}
+
+#search-form:hover{
+	width:150px;
+	animation: logoframes 1s ease-in-out 0s forwards;
+}
+
+
+@keyframes logoframes {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 150px;
+	}
 }
 
 a{
@@ -61,10 +98,10 @@ a{
 }
 
 #nav-bar {
-	background-color:#D4F4FA;
+	background-color:black;
     font-weight:bold;
     height:auto;
-
+	margin-top:5px;
 }
 
 #nav-bar ul li {
@@ -75,12 +112,17 @@ a{
 #nav-bar a{
 	height:18px;
 	text-decoration:none;
-	color:#ff00000;
+	color:white;
 	border:0;
-	background-color:#D4F4FA;
+	background-color:black;
 }
 
-#nav-bar a:hover{
+#product-list:hover{
+	background-color:#DAD9FF;
+	color:#030066;
+}
+
+#custom-list:hover{
 	background-color:#DAD9FF;
 	color:#030066;
 }
@@ -90,6 +132,9 @@ a{
 	height:20px;
 }
 
+#menu-Icon:hover{
+	background: black;
+}
 
 #bar-btn{
 	height:10px;
@@ -118,7 +163,7 @@ a{
 
 
 #footer{
-	background-color:#EAEAEA;
+	background-color:black;
 	height:80px;
 }
 
@@ -127,6 +172,7 @@ a{
 	text-align:center;
 	font-family: consolas;
 	font-weight:bold;
+	color:white;
 }
 
 #footer #SNS{

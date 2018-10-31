@@ -7,9 +7,13 @@
 <title>쇼핑몰</title>
 <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
 <link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main-banner-style.css" rel="stylesheet" type="text/css">
+<link href="css/banner_style.css" rel="stylesheet" type="text/css">
 
 <script src="jquery/jquery.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+<script src="function/main-banner-function.js" type="text/javascript"></script>
+<script src="function/main_top_banner_function.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).on("ready",function(){
 	$(".right").fadeOut(2000);
@@ -19,32 +23,73 @@ $(document).on("ready",function(){
 <body>
 <div data-role="page" id="page" >
 	<div id="header" data-role="header" data-theme="a" data-position="fixed">
+		<div>
+			<span id="banner_bg" style="display:flex; justify-content:center;">
+				<img src="product_img/1.jpg"  class="banner-img" alt="배너 사진" height="60px" width="100%" >
+				<input type="button" data-role="none" value="▲" class="up" title="메뉴" data-inline="true" style="background-color:white;">
+			</span>
+		</div>
 		<div align="center"><a id="logo" href="main_logout.jsp" target="_self">Pooh쇼핑몰</a></div>
-		<span class="right"  style="float:right; marign-bottom:1em; padding-top:6px; margin-top:50px;">
+		<span class="right"  style="float:right; marign-bottom:1em; padding-top:8px; margin-top:-7px; color:white;">
 			<%String checkName= "";
 		 	 String checkId = "";
 		  	checkName = (String)session.getAttribute("s_name"); %>
 		  	<%=checkName %>님 반갑습니다.
 		</span>
-		<a href = "logout.jsp" style="margin-right:30px;" class="ui-btn-right" data-role="none"><img src="images/logout.png" id="exit-Icon" alt="로그아웃"></a>
-		<a href="#nav-panel2" data-iconpos="notext" class="ui-btn-right" data-role="none"><img src="images/menu-btn.png" id="right-top-menu-Icon" alt="오른쪽 메뉴 목록"></a>
+		<a href = "logout.jsp" class="ui-btn-right" id="exit-icon-a" data-role="none" data-ajax="false"><img src="images/unlock.png" id="exit-Icon" alt="로그아웃"></a>
+		<a href="#nav-panel2" data-iconpos="notext" class="ui-btn-right" id="right-top-menu-div" data-role="none"><img src="images/menu.png" id="right-top-menu-Icon" alt="오른쪽 메뉴 목록"></a>
 		<form class="ui-filterable" style="width:300px; margin:20px; padding-left:50px;">
 			<input id="btn_search" data-type="search" >
 		</form>
 	</div>
 		
 	<div data-role="content" id="content">
+		<div id="block-itunes">
+			<div id="blockA"><!-- blockB에 나타난 그림을 크게 보여줄 곳 -->
+				<a href="#largeimage"></a>
+			</div>
+			<div id="itune_images">
+				<div id="blockB"> <!-- Block B for small Images-->
+					<a href="#image1">
+						<img src="banners/harrypotter_small.jpg" alt="" class="min"  />
+					</a>
+					<a href="#image2">
+		                <img src="banners/prisonbreak_small.jpg" alt="" class="min"  />
+					</a>
+					<a href="#image3">
+					    <img src="banners/transformers_small.jpg" alt="" class="min" />
+					</a>
+					<a href="#image4">
+		                <img src="banners/xmenfirstclass_small.jpg" alt="" class="min"  />
+					</a>
+				</div>
+				<button type="button" id="bi-button" style="background: url(images/itunes-button.png) 0% 0% no-repeat;"></button>
+			</div>
+		</div>
+	
 		<div data-role="navbar" id="nav-bar" >
 			<ul>
-				<li><a href="#nav-panel"><img src="images/menu-btn.png" id="menu-Icon" alt="전체 메뉴 보기"></a></li>
-			 	<li><a href="product.html" target="display_area" data-ajax="false">상품</a></li>
-			 	<li><a href="list.jsp" data-ajax="false">고객센터</a></li>
+				<li><a href="#nav-panel"><img src="images/menu-list.png" id="menu-Icon" alt="전체 메뉴 보기"></a></li>
+			 	<li><a href="product.html" id="product-list" target="display_area" data-ajax="false">상품</a></li>
+			 	<li><a href="list.jsp" id="custom-list" data-ajax="false">고객센터</a></li>
 			 </ul>
 		</div><!-- /navbar -->
 		<hr>	<!-- 줄 긋기 -->
+		
+		<div class="simple_banner_wrap banner02" data-type="hslide" data-interval="3000" data-ajax="false">
+			<ul>
+				<li><a href="#"><img src="product_img/1.jpg" width="100%"></a></li>
+				<li><a href="#"><img src="product_img/2.jpg" width="100%"></a></li>
+				<li><a href="#"><img src="product_img/3.jpg" width="100%"></a></li>
+				<li><a href="#"><img src="product_img/4.jpg" width="100%"></a></li>
+				<li><a href="#"><img src="product_img/5.jpg" width="100%"></a></li>
+			</ul>
+		</div>
+		
 		<article class="left" id="article">
 		     <div align="center"><iframe name="display_area" src="product.html" id="iframe-form">></iframe></div>
-		</article><!-- /article -->	
+		</article><!-- /article -->
+			
 		<hr><!-- 줄 긋기 -->
 	</div><!-- /content -->
 	
