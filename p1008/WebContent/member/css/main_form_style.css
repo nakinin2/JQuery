@@ -148,7 +148,7 @@ a{
 
 #iframe-form{
 	height:100vh;	/*vh:view-port-height로 사용자가 보는 화면에 따라 조절*/
-	width:100vw;	/*vw:view-port-width로 사용자가 보는 화면에 따라 조절*/
+	width:100%;	/*vw:view-port-width로 사용자가 보는 화면에 따라 조절*/
 	border:none;
 	background-color:white;
 }
