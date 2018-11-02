@@ -5,6 +5,10 @@ body{
 	background-color:white;
 }
 
+.ui-body-a,.ui-page-theme-a .ui-body-inherit,html .ui-bar-a .ui-body-inherit,html .ui-body-a .ui-body-inherit,html body .ui-group-theme-a .ui-body-inherit,html .ui-panel-page-container-a{
+    border-color:black;
+}
+
 #page{
 	margin:0;
 	margin-right: auto;
@@ -76,21 +80,6 @@ body{
 	 margin:20px;
 	 padding-left:50px;
 	 animation-fill-mode:forwards;
-}
-
-#search-form:hover{
-	width:150px;
-	animation: logoframes 1s ease-in-out 0s forwards;
-}
-
-
-@keyframes logoframes {
-	0% {
-		width: 0;
-	}
-	100% {
-		width: 150px;
-	}
 }
 
 a{

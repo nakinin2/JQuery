@@ -7,7 +7,7 @@
 	<%//입력 정보 추출
 	  String id = request.getParameter("id");
 	  String passwd = request.getParameter("passwd");
-	  String name = "";
+	  
 	  //변수 선언
 	  Connection conn = null;
 	  PreparedStatement pstmt = null;
@@ -39,10 +39,9 @@
 			  String userID = rs.getString("id"); //데이터베이스에 있는 id를 받는다
 			  String userPWD = rs.getString("passwd"); //데이터베이스에 있는 passwd를 받는다
 			  String userName = rs.getString("name"); //데이터베이스에 있는 name를 받는다
-			  
 			  	if(passwd.equals(userPWD)) {%>
 			  		<%= rs.getString("name") %>님 환영합니다.<%
-			  		session.setAttribute("s_name", userName);
+			  		session.setAttribute("s_names", userName);
 			  		session.setAttribute("s_Id", userID);
 			  		response.sendRedirect("main_logout.jsp");//main.jsp에 seesion의 정보를 보낸다.
 			  	}else{

@@ -9,15 +9,32 @@
 <link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
 <link href="css/main-banner-style.css" rel="stylesheet" type="text/css">
 <link href="css/banner_style.css" rel="stylesheet" type="text/css">
+<link href="css/demo.css" rel="stylesheet" type="text/css" />
+<link href="css/searchMeme.css" rel="stylesheet" type="text/css" />
 
 <script src="jquery/jquery.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 <script src="function/main-banner-function.js" type="text/javascript"></script>
 <script src="function/main_top_banner_function.js" type="text/javascript"></script>
-<script type="text/javascript">
+<script src="function/jquery.searchMeme.js" type="text/javascript"></script>
+
+<script type="text/javascript">//header 배너를 없앨 때 실행
 $(document).on("ready",function(){
 	$(".right").fadeOut(2000);
 });
+</script>
+
+<script type="text/javascript">// search 버튼을 눌렀을 때 검색하는 input창 나오게 실행
+	$(document).ready(function () {
+    	var searchOrange = $('#search-orange').searchMeme({ onSearch: function (searchText) {
+	        setTimeout(function () {
+	        	searchOrange.searchMeme({ searchComplete: true });
+	             $('#article').html("You searched for " + searchOrange.val() + "");
+	             $('#iframe-form').animate({ 'height': 200 }, 500);
+	        }, 3000);
+        }, buttonPlacement: 'left', button: 'orange'
+        });
+    });
 </script>
 </head>
 <body>
@@ -38,10 +55,14 @@ $(document).on("ready",function(){
 		</span>
 		<a href = "logout.jsp" class="ui-btn-right" id="exit-icon-a" data-role="none" data-ajax="false"><img src="images/unlock.png" id="exit-Icon" alt="로그아웃"></a>
 		<a href="#nav-panel2" data-iconpos="notext" class="ui-btn-right" id="right-top-menu-div" data-role="none"><img src="images/menu.png" id="right-top-menu-Icon" alt="오른쪽 메뉴 목록"></a>
-		<form class="ui-filterable" style="width:300px; margin:20px; padding-left:50px;">
-			<input id="btn_search" data-type="search" >
-		</form>
-	</div>
+		<div class="search-wrapper" data-ajax="false">
+        <div class="demo">
+            <input type="text" id="search-orange" />
+            <div class="clear">
+            </div>
+        </div>
+    	</div>
+	</div><!-- /header -->
 		
 	<div data-role="content" id="content">
 		<div id="block-itunes">

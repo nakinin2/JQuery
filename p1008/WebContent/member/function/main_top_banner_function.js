@@ -13,7 +13,7 @@ $(document).ready(function() {
 	
 	var image_manipulation = $myclone.html() ;	//복사했던 것을 html에 가져온다.
 
-	$big_image  = image_manipulation.replace(/_small/, ''); //blockB에 있는 그림의 이름에서 _small을 replace로 자른다.
+	$big_image  = image_manipulation.replace(/\s/, ''); //blockB에 있는 그림의 이름에서 _small을 replace로 자른다.
 	$('#blockA a').html($big_image); //_small을 자른 것을 blockA의 a태그에 넣는다.
 	$('#blockA img').removeClass("min").addClass("max");	//blockA에 class라고 정의한 min를 삭제하고, class라고 정의한 max를 추가한다.
 	$('#blockA img').css({opacity: 0}).animate({opacity: 1}, 600);		//blockA img에 css 투명도를 0으로 하고, 투명도가 1로 되도록 0.6초의 시간으로 주면서 천천히 실행(그림이 바뀔 때 실행한다.)
