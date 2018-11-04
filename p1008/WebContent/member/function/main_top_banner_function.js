@@ -1,3 +1,4 @@
+//nav 메뉴 위에 배너
 $(document).ready(function() {
 	var height = $('#blockB a').height();//blockB의 높이 설정
 	var timeout = 0;//자동으로 움직일 때의 시간 설정

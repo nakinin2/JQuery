@@ -1,17 +1,11 @@
 * {
 	margin: 0;
 }
-body {
-	font-family: Arial, sans-serif;
-	background: #FFF;
-	margin: 0;
-	padding: 0;
-}
 
 #block-itunes {
 	position: relative;
 	width: 100%;
-	height: 219px;
+	height: 250px;
 	background: #fff;
 	margin: 0 auto;
 }

@@ -39,10 +39,17 @@
 			  String userID = rs.getString("id"); //데이터베이스에 있는 id를 받는다
 			  String userPWD = rs.getString("passwd"); //데이터베이스에 있는 passwd를 받는다
 			  String userName = rs.getString("name"); //데이터베이스에 있는 name를 받는다
-			  	if(passwd.equals(userPWD)) {%>
+			  String userNickname = rs.getString("nickname");
+			  String userTel = rs.getString("tel");
+			  String userEmail = rs.getString("email");
+			  
+			  if(passwd.equals(userPWD)) {%>
 			  		<%= rs.getString("name") %>님 환영합니다.<%
 			  		session.setAttribute("s_names", userName);
 			  		session.setAttribute("s_Id", userID);
+			  		session.setAttribute("check_nickname", userNickname);
+					session.setAttribute("check_tel", userTel);
+					session.setAttribute("check_email", userEmail);
 			  		response.sendRedirect("main_logout.jsp");//main.jsp에 seesion의 정보를 보낸다.
 			  	}else{
 			  		%>

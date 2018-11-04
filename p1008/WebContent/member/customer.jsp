@@ -19,21 +19,14 @@
 	String checkTel="";
 	String checkEmail="";
 	String checkPasswd="";
-	checkName = (String)session.getAttribute("s_name");
-	checkId = (String)session.getAttribute("s_Id");
-	checkNickname = (String)session.getAttribute("s_nickname");
-	checkTel = (String)session.getAttribute("s_tel");
-	checkEmail = (String)session.getAttribute("s_email");
+	checkName = (String)session.getAttribute("check_name");
+	checkId = (String)session.getAttribute("check_id");
+	checkNickname = (String)session.getAttribute("check_nickname");
+	checkTel = (String)session.getAttribute("check_tel");
+	checkEmail = (String)session.getAttribute("check_email");
 %><%
 	checkPasswd = (String)session.getAttribute("s_passwd");
-	if(checkName == null) {
-		%>
-		<script>
-			self.window.alert("먼저 로그인 하세요.");
-			location.href = "javascript:history.back()";
-		</script>
-		<%
-    }%>
+%>
 <div data-role="page" id="custom-page">
 <div data-role="header" id="custom-header"data-position="fixed">
 	<a href="#" OnClick="javascript:history.back(-1);" data-role="none" data-iconpos="notext" class="ui-btn-left" data-ajax="false"><img src="images/home-button.png" id="custom-main-home-Icon" alt="메인으로"></a>

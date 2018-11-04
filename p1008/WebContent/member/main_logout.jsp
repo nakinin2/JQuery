@@ -9,7 +9,7 @@
 <link href="css/main_form_style.css" rel="stylesheet" type="text/css"/>
 <link href="css/main-banner-style.css" rel="stylesheet" type="text/css">
 <link href="css/banner_style.css" rel="stylesheet" type="text/css">
-<link href="css/demo.css" rel="stylesheet" type="text/css" />
+<link href="css/search_style.css" rel="stylesheet" type="text/css" />
 <link href="css/searchMeme.css" rel="stylesheet" type="text/css" />
 
 <script src="jquery/jquery.min.js" type="text/javascript"></script>
@@ -50,7 +50,7 @@ $(document).on("ready",function(){
 		<span class="right"  style="float:right; marign-bottom:1em; padding-top:8px; margin-top:-7px; color:white;">
 			<%String checkName= "";
 		 	 String checkId = "";
-		  	checkName = (String)session.getAttribute("s_name"); %>
+		  	checkName = (String)session.getAttribute("s_names"); %>
 		  	<%=checkName %>님 반갑습니다.
 		</span>
 		<a href = "logout.jsp" class="ui-btn-right" id="exit-icon-a" data-role="none" data-ajax="false"><img src="images/unlock.png" id="exit-Icon" alt="로그아웃"></a>
@@ -148,10 +148,13 @@ $(document).on("ready",function(){
 </div><!-- /left-menu-panel -->
 
 <div data-role="panel" data-position="right" data-position-fixed="true" data-display="push" data-theme="a" id="customer_form" data-swipe-close="false">
-	<form method="post" class="userform" id="user-form" name="loginform" action="customer.jsp" data-ajax="false">
+	<form method="post" class="userform" id="user-form" name="loginform" action="customer_check.jsp" data-ajax="false">
 	   <h2 align="center">내 정보</h2>
-	   <label for="password">Password:</label>
-	   <input type="password" name="custom_passwd" id="login-password" value="" data-clear-btn="true" autocomplete="off" data-mini="true" required="required">
+	   <label for="id">Id:</label>
+	   <input type="text" name="custom_id" id="custom_id" value="" data-clear-btn="true" data-mini="true" required="required">
+	   <span id="s-user"></span>
+	   <label for="passwordd">Password:</label>
+	   <input type="password" name="custom_passwd" id="custom_passwd" value="" data-clear-btn="true" autocomplete="off" data-mini="true" required="required">
 	   <span id="login-text"></span>
        <div class="ui-grid-a">
 	   <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini">Cancel</a></div>

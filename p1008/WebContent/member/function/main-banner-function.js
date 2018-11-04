@@ -3,7 +3,7 @@
  * Released under MIT license, http://hangunsworld.com/license.txt
  */
 
-
+//nav 메뉴 밑에 있는 배너
 
 $(function(){
 	initSimpleBanner();
