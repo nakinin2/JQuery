@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*" import="java.util.Date"%>
 <%
-	request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8"); 
 	//데이터 베이스 연결 관련 정보 변수
 	Connection conn = null;
 	PreparedStatement pstmt = null;

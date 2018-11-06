@@ -47,7 +47,7 @@
 
 <script src="jquery/jquery.min.js" type="text/javascript"></script>
 <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
-</head>
+</head> 
 <body>
 <div data-role="page" id="view-page">
 <div data-role="header" id="view-header" data-position="fixed">
